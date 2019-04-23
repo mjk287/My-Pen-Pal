@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Penpal.all.delete_all
+User.all.delete_all
+
+User.create(email: 'myung@myung.com', name: 'Myung Kim', password: '1234')
+User.create(email: 'clyde@clyde.com', name: 'Clyde Kim', password: '1234')
+
+User.first.my_penpal = User.second
+
+puts 'seeded!'
