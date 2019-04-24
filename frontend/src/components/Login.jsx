@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { postLogin } from '../Redux/actions'
 
 class Login extends React.Component {
 
@@ -17,23 +18,7 @@ class Login extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-    fetch("http://localhost:3000/api/v1/login", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(this.state)
-    })
-    .then(res => res.json())
-    .then(userObj => {
-      if(!!userObj.message) {
-        alert(userObj.message)
-      } else {
-      localStorage.setItem('token', userObj.jwt)
-      this.props.setCurrentUser(userObj)
-      }
-    })
+    this.props.postLogin(this.state)
   }
 
   render(){
@@ -53,9 +38,7 @@ class Login extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return (
-    { setCurrentUser: (userObj) => {
-      dispatch({type: "SET_CURRENT_USER", payload: userObj.user})
-    }}
+    { postLogin: (userObj) => dispatch(postLogin(userObj)) }
   )
 }
 
