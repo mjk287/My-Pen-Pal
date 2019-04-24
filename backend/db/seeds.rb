@@ -11,6 +11,7 @@ User.all.delete_all
 
 User.create(email: 'myung@myung.com', name: 'Myung Kim', password: '1234')
 User.create(email: 'clyde@clyde.com', name: 'Clyde Kim', password: '1234')
+User.create(email: 'clyde1@clyde1.com', name: 'Clyde1 Kim', password: '1234')
 
 User.first.my_penpal = User.second
 

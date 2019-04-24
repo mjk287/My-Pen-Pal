@@ -5,19 +5,17 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
+    user_without_penpal = User.all.find do |user|
+      !user.my_penpal
+    end
+
     @user = User.new(user_params)
 
     if @user.save
-      user_without_penpal = User.all.find do |user|
-        !user.my_penpal
-      end
-
-      if user_without_penpal.nil?
-        @user.my_penpal = user_without_penpal
-      end
+      @user.my_penpal = user_without_penpal unless user_without_penpal.nil?
 
       @token = JWT.encode({user_id: @user.id}, "secret")
-      render json: { user: @user, jwt: @token }, status: :created
+      render json: { user: ActiveModel::Serializer::UserSerializer.new(@user), jwt: @token }, status: :created
     else
       render json: @user.errors, status: :unprocessable_entity
     end
