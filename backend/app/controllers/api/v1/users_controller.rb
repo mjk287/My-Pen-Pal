@@ -17,7 +17,7 @@ class Api::V1::UsersController < ApplicationController
       end
 
       @token = JWT.encode({user_id: @user.id}, "secret")
-      render json: { user: @user, penpal: @user.my_penpal, jwt: @token }, status: :created
+      render json: { user: @user, jwt: @token }, status: :created
     else
       render json: @user.errors, status: :unprocessable_entity
     end
