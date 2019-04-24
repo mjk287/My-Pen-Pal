@@ -1,19 +1,22 @@
 const initialState = {
-  currentUser: {}
+  currentUser: {},
+  myPosts: [],
+  ourPosts: []
 }
 
 const reducer = (state=initialState, action) => {
-  console.log(action.payload)
   switch(action.type){
     case "SET_CURRENT_USER":
       return({
           ...state,
-          currentUser: action.payload
+          currentUser: action.payload.user,
+          myPosts: action.payload.my_posts,
+          ourPosts: action.payload.our_posts
         })
     case "LOGOUT":
       return({
         ...state,
-        currentUser: {}
+        ...initialState
       })
     default:
       return state

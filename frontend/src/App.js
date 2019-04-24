@@ -14,8 +14,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.props.currentUser)
-    console.log(localStorage.getItem('token'))
+    console.log(this.props)
     return (
       <div className="App">
         <button onClick={this.props.handleLogOut}>Log Out</button>

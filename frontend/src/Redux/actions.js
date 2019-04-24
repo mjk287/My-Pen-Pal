@@ -13,7 +13,7 @@ export const getCurrentUser = () => (dispatch) => {
         }
       }).then(res => res.json())
       .then(parsedRes => {
-        dispatch(setCurrentUser(parsedRes.user))
+        dispatch(setCurrentUser(parsedRes))
       })
 }
 
@@ -27,12 +27,12 @@ export const postUser = (userObj) => (dispatch) => {
     body: JSON.stringify(userObj)
   })
   .then(res => res.json())
-  .then(userObj => {
-    if(!!userObj.message) {
-      alert(userObj.message)
+  .then(parsedRes => {
+    if(!!parsedRes.message) {
+      alert(parsedRes.message)
     } else {
-    localStorage.setItem('token', userObj.jwt)
-    dispatch(setCurrentUser(userObj.user))
+    localStorage.setItem('token', parsedRes.jwt)
+    dispatch(setCurrentUser(parsedRes))
     }
   })
 }
@@ -47,12 +47,12 @@ export const postLogin = (userObj) => (dispatch) => {
     body: JSON.stringify(userObj)
   })
   .then(res => res.json())
-  .then(userObj => {
-    if(!!userObj.message) {
-      alert(userObj.message)
+  .then(parsedRes => {
+    if(!!parsedRes.message) {
+      alert(parsedRes.message)
     } else {
-    localStorage.setItem('token', userObj.jwt)
-    dispatch(setCurrentUser(userObj.user))
+    localStorage.setItem('token', parsedRes.jwt)
+    dispatch(setCurrentUser(parsedRes))
     }
   })
 }

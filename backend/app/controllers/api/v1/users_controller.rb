@@ -15,7 +15,9 @@ class Api::V1::UsersController < ApplicationController
       @user.my_penpal = user_without_penpal unless user_without_penpal.nil?
 
       @token = JWT.encode({user_id: @user.id}, "secret")
-      render json: { user: ActiveModel::Serializer::UserSerializer.new(@user), jwt: @token }, status: :created
+      @my_posts = @user.posts
+      @our_posts = @user.our_posts
+      render json: { user: ActiveModel::Serializer::UserSerializer.new(@user), jwt: @token, my_posts: @my_posts, our_posts: @our_posts }, status: :created
     else
       render json: @user.errors, status: :unprocessable_entity
     end
