@@ -1,7 +1,5 @@
 const initialState = {
-  currentUser: {},
-  myPosts: [],
-  ourPosts: []
+  currentUser: {}
 }
 
 const reducer = (state=initialState, action) => {
