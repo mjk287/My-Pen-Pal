@@ -13,7 +13,7 @@ class UsPage extends React.Component{
     .then(resp => resp.json())
     .then(posts => {
       this.setState({
-        ourPosts: posts
+        ourPosts: posts.reverse()
       })
     })
   }

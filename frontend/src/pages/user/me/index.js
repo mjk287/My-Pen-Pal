@@ -1,6 +1,7 @@
 import React from 'react'
 import PostsContainer from '../../../components/PostsContainer'
 import { connect } from 'react-redux'
+import PostForm from '../../../components/PostForm'
 
 class MePage extends React.Component {
 
@@ -13,14 +14,36 @@ class MePage extends React.Component {
     .then(res => res.json())
     .then(posts => {
       this.setState({
-        myPosts: posts
+        myPosts: posts.reverse()
+      })
+    })
+  }
+
+  handleSubmit = (e, postObj) => {
+    e.preventDefault()
+
+    fetch(`http://localhost:3000/api/v1/posts`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(postObj)
+    })
+    .then(res => res.json())
+    .then(post => {
+      this.setState({
+        myPosts: [post, ...this.state.myPosts]
       })
     })
   }
 
   render(){
     return(
-      <PostsContainer posts={this.state.myPosts} />
+      <React.Fragment>
+        <PostForm handleSubmit={this.handleSubmit}/>
+        <PostsContainer posts={this.state.myPosts} />
+      </React.Fragment>
     )
   }
 }

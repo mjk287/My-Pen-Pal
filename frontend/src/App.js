@@ -4,6 +4,8 @@ import LandingPage from './pages/landing'
 import Routes from './pages/routes'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './Redux/actions'
+import NavComp from './components/NavComp'
+import { store } from './index.js'
 
 class App extends React.Component {
 
@@ -14,11 +16,12 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="App">
+        <NavComp />
         <button onClick={this.props.handleLogOut}>Log Out</button>
-        { !!this.props.currentUser.id ? <Routes /> : <LandingPage /> }
+        {
+          !!store.getState().currentUser.id ? <Routes /> : <LandingPage /> }
 
       </div>
     );
