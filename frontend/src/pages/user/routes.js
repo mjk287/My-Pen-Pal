@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Switch} from 'react-router-dom'
 import MePage from './me'
 import UsPage from './us'
+import EditPage from './edit'
 
 const UserRoutes = (props) => {
   return(
@@ -15,7 +16,7 @@ const UserRoutes = (props) => {
       <Route
       exact
       path={`${props.match.url}/edit`}
-      render={() => <div>Edit page!</div>}
+      render={() => <EditPage />}
       >
       </Route>
       <Route
