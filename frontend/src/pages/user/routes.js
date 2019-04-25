@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Switch} from 'react-router-dom'
-import MePage from './index'
+import MePage from './me'
+import UsPage from './us'
 
 const UserRoutes = (props) => {
   return(
@@ -19,7 +20,7 @@ const UserRoutes = (props) => {
       </Route>
       <Route
       path={`${props.match.url}/us`}
-      render={() => <div>News Feed Page!</div>}
+      render={() => <UsPage />}
       >
       </Route>
     </Switch>
