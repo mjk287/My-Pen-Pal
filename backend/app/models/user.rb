@@ -1,7 +1,11 @@
 class User < ApplicationRecord
+  include Rails.application.routes.url_helpers
+
   has_one :penpal
   has_one :my_penpal, through: :penpal
   has_many :posts
+  has_one_attached :image
+  has_one_attached :song
 
   has_secure_password
 
@@ -14,5 +18,13 @@ class User < ApplicationRecord
     else
       self.posts
     end
+  end
+
+  def getSong
+    rails_blob_path(self.song, only_path: true) if self.song.attached?
+  end
+
+  def getImage
+    rails_blob_path(self.image, only_path: true) if self.image.attached?
   end
 end

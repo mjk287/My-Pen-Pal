@@ -58,3 +58,14 @@ export const postLogin = (userObj) => (dispatch) => {
     }
   })
 }
+
+export const patchUser = (userObj, id) => (dispatch) => {
+  fetch(`http://localhost:3000/api/v1/users/${id}`, {
+    method: 'PATCH',
+    body: userObj
+  })
+  .then(res => res.json())
+  .then(parsedRes => {
+    dispatch(setCurrentUser(parsedRes))
+  })
+}
