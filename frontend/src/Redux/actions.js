@@ -1,6 +1,8 @@
 /*------------------- Actions -------------------------- */
 
 export const setCurrentUser = (userObj) => ({type: "SET_CURRENT_USER", payload: userObj})
+export const setMyPosts = (posts) => ({type: "SET_MY_POSTS", payload: posts})
+export const setOurPosts = (posts) => ({type: "SET_OUR_POSTS", payload: posts})
 
 /*------------------- Thunk -------------------------- */
 
@@ -13,7 +15,7 @@ export const getCurrentUser = () => (dispatch) => {
         }
       }).then(res => res.json())
       .then(parsedRes => {
-        dispatch(setCurrentUser(parsedRes))
+        dispatch(setCurrentUser(parsedRes.user))
       })
 }
 
@@ -32,7 +34,7 @@ export const postUser = (userObj) => (dispatch) => {
       alert(parsedRes.message)
     } else {
     localStorage.setItem('token', parsedRes.jwt)
-    dispatch(setCurrentUser(parsedRes))
+    dispatch(setCurrentUser(parsedRes.user))
     }
   })
 }
@@ -52,7 +54,7 @@ export const postLogin = (userObj) => (dispatch) => {
       alert(parsedRes.message)
     } else {
     localStorage.setItem('token', parsedRes.jwt)
-    dispatch(setCurrentUser(parsedRes))
+    dispatch(setCurrentUser(parsedRes.user))
     }
   })
 }

@@ -13,6 +13,18 @@ class Api::V1::PostsController < ApplicationController
     end
   end
 
+  def my_posts
+    user = User.find(params[:user_id])
+    @posts = user.posts
+    render json: @posts
+  end
+
+  def our_posts
+    user = User.find(params[:user_id])
+    @posts = user.our_posts
+    render json: @posts
+  end
+
   private
 
   def post_params
