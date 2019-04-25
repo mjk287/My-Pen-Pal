@@ -9,9 +9,7 @@ const reducer = (state=initialState, action) => {
     case "SET_CURRENT_USER":
       return({
           ...state,
-          currentUser: action.payload.user,
-          myPosts: action.payload.my_posts,
-          ourPosts: action.payload.our_posts
+          currentUser: action.payload
         })
     case "LOGOUT":
       return({

@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:index, :show, :create, :update, :destroy]
+      resources :posts, only: [:index, :create]
 
+      get '/my_posts/:user_id', to: 'posts#my_posts'
+      get '/our_posts/:user_id', to: 'posts#our_posts'
       post '/login', to: 'auth#create'
       get '/current_user', to: 'auth#show'
     end
