@@ -1,5 +1,8 @@
+import ActionCable from 'action-cable-react-jwt'
+
 const initialState = {
-  currentUser: {}
+  currentUser: {},
+  cable: {}
 }
 
 const reducer = (state=initialState, action) => {
@@ -7,7 +10,8 @@ const reducer = (state=initialState, action) => {
     case "SET_CURRENT_USER":
       return({
           ...state,
-          currentUser: action.payload
+          currentUser: action.payload,
+          cable: ActionCable.createConsumer('ws://localhost:3000/cable', localStorage.getItem('token'))
         })
     case "LOGOUT":
       return({

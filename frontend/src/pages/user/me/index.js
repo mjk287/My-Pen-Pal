@@ -39,7 +39,6 @@ class MePage extends React.Component {
   }
 
   render(){
-    console.log(this.props.currentUser)
     return(
       <React.Fragment>
         <img src={`http://localhost:3000/${this.props.currentUser.image}`}/>
