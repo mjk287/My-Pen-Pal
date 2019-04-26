@@ -3,7 +3,7 @@ import './App.css';
 import LandingPage from './pages/landing'
 import Routes from './pages/routes'
 import { connect } from 'react-redux'
-import { getCurrentUser } from './Redux/actions'
+import { getCurrentUser, logoutUser } from './Redux/actions'
 import NavComp from './components/NavComp'
 import { store } from './index.js'
 
@@ -30,10 +30,7 @@ class App extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return({
-    handleLogOut: () => {
-      localStorage.removeItem("token")
-      dispatch({type: 'LOGOUT'})
-    },
+    handleLogOut: () => dispatch(logoutUser()),
     getCurrentUser: () => dispatch(getCurrentUser())
   })
 }
