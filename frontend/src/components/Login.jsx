@@ -6,7 +6,8 @@ class Login extends React.Component {
 
   state = {
     email: '',
-    password: ''
+    password: '',
+    online: true
   }
 
   changeHandler = (e) => {

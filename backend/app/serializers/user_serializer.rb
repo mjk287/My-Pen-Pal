@@ -5,7 +5,7 @@ class UserSerializer < ActiveModel::Serializer
 
   def my_penpal
     penpal = self.object.my_penpal
-    { id: penpal.id, email: penpal.email, name: penpal.name, image: penpal.getImage, song: penpal.getSong } unless penpal.nil?
+    { id: penpal.id, email: penpal.email, name: penpal.name, image: penpal.getImage, song: penpal.getSong, online: penpal.online } unless penpal.nil?
   end
 
   def image

@@ -8,7 +8,8 @@ class Signup extends React.Component {
     email: '',
     name: '',
     password: '',
-    passwordConfirmation: ''
+    passwordConfirmation: '',
+    online: true
   }
 
   changeHandler = (e) => {

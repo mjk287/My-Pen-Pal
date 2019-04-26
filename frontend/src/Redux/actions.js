@@ -69,3 +69,16 @@ export const patchUser = (userObj, id) => (dispatch) => {
     dispatch(setCurrentUser(parsedRes))
   })
 }
+
+export const logoutUser = () => (dispatch) => {
+  fetch("http://localhost:3000/api/v1/logout", {
+    method:'POST',
+    headers: {
+      'Authorization': localStorage.getItem('token')
+    }
+  })
+  .then(() => {
+    localStorage.removeItem("token")
+    dispatch({type: 'LOGOUT'})}
+  )
+}
