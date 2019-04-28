@@ -6,23 +6,10 @@ class UsPage extends React.Component{
 
   state = {
     ourPosts: [],
-    penpalIsOn: false,
+    penpalIsOn: this.props.currentUser.my_penpal.online,
   }
 
   componentDidMount(){
-    // const { currentUser } = this.props
-    // const channel_ids = [currentUser.id, currentUser.my_penpal.id].sort()
-    // this.props.cable.subscriptions.create({channel: 'PenpalChannel', room: `${channel_ids[0]}_${channel_ids[1]}`}, {
-    //   connected: () => {},
-    //   disconnected: () => {},
-    //   received: (data) => {
-    //     if(data.isOnline){
-    //       this.setState({
-    //         penpalIsOn: true
-    //       })
-    //     }
-    //   }
-    // })
 
     fetch(`http://localhost:3000/api/v1/our_posts/${this.props.currentUser.id}`)
     .then(resp => resp.json())
@@ -34,9 +21,11 @@ class UsPage extends React.Component{
   }
 
   render(){
+    console.log('redux online status:', this.props.currentUser.my_penpal.online)
+    console.log('local state', this.state.penpalIsOn)
     return(
       <React.Fragment>
-        { this.state.penpalIsOn &&
+        { this.props.currentUser.my_penpal.online &&
         <h1>I'm On</h1>
         }
         <PostsContainer posts={this.state.ourPosts}/>

@@ -27,4 +27,12 @@ class User < ApplicationRecord
   def getImage
     rails_blob_path(self.image, only_path: true) if self.image.attached?
   end
+
+  def appear
+    ActionCable.server.broadcast "penpal_channel_#{self.my_penpal.id}", { event: "appear" }
+  end
+
+  def disappear
+    ActionCable.server.broadcast "penpal_channel_#{self.my_penpal.id}", { event: "disappear" }
+  end
 end

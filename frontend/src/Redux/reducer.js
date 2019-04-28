@@ -18,6 +18,17 @@ const reducer = (state=initialState, action) => {
         ...state,
         ...initialState
       })
+    case "GOT_ONLINE":
+      return({
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          my_penpal: {
+            ...state.currentUser.my_penpal,
+            online: true
+          }
+        }
+      })
     default:
       return state
   }
