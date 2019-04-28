@@ -9,14 +9,13 @@ class Routes extends React.Component {
 
   componentDidMount(){
     const { currentUser } = this.props
-    const channel_ids = [currentUser.id, currentUser.my_penpal.id].sort()
+
     this.props.cable.subscriptions.create({channel: 'PenpalChannel', room: `${currentUser.id}`}, {
       connected: () => {},
       disconnected: () => {},
       received: (data) => {
         switch(data.event){
           case 'appear':
-            console.log('hit appear')
             this.props.gotOnline()
           default:
             return null
