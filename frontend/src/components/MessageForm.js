@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Input } from 'semantic-ui-react'
 
 class MessageForm extends React.Component {
 
@@ -22,12 +23,8 @@ class MessageForm extends React.Component {
 
   render(){
     return(
-      <form onSubmit={(e) => this.submitHandler(e, this.state.message)}>
-        <label> Message:
-        <input type='text' name='message' value={this.state.message} onChange={this.changeHandler} />
-        </label>
-
-        <input type='submit' value='Message Them!'/>
+      <form onSubmit={(e) => this.submitHandler(e, this.state.message)} id='penpal-message'>
+        <Input label='Message:' type='text' name='message' value={this.state.message} onChange={this.changeHandler} />
       </form>
     )
   }

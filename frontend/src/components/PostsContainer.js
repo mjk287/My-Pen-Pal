@@ -1,5 +1,6 @@
 import React from 'react'
 import PostCard from './PostCard'
+import { Card } from 'semantic-ui-react'
 
 const PostsContainer = (props) => {
   const makePostCards = () => {
@@ -10,7 +11,13 @@ const PostsContainer = (props) => {
 
   return(
     <React.Fragment>
-      { props.posts.length === 0 ? <h3>You should write a post!</h3> : makePostCards()  }
+      { props.posts.length === 0 ?
+        <h3>You should write a post!</h3>
+         :
+        <Card.Group>
+          {makePostCards()}
+        </Card.Group>
+      }
     </React.Fragment>
   )
 }

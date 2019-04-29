@@ -1,10 +1,15 @@
 import React from 'react'
+import { Container, Card } from 'semantic-ui-react'
 
 const PostCard = (props) => {
   return (
     <React.Fragment>
-      <h1>{props.post.title}</h1>
-      <p>{props.post.content}</p>
+      <Container className='card-margin-spacing'>
+        <Card fluid>
+          <Card.Content header={props.post.title}/>
+          <Card.Content description={props.post.content}/>
+        </Card>
+      </Container>
     </React.Fragment>
   )
 }
