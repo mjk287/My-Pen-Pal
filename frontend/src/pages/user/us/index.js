@@ -1,12 +1,12 @@
 import React from 'react'
 import PostsContainer from '../../../components/PostsContainer'
 import { connect } from 'react-redux'
+import PenpalContainer from '../../../components/PenpalContainer'
 
 class UsPage extends React.Component{
 
   state = {
-    ourPosts: [],
-    penpalIsOn: this.props.currentUser.my_penpal.online,
+    ourPosts: []
   }
 
   componentDidMount(){
@@ -21,13 +21,12 @@ class UsPage extends React.Component{
   }
 
   render(){
-    console.log('redux online status:', this.props.currentUser.my_penpal.online)
-    console.log('local state', this.state.penpalIsOn)
     return(
       <React.Fragment>
         { this.props.currentUser.my_penpal.online &&
-        <h1>I'm On</h1>
+        <h1>Penpal is on</h1>
         }
+        <PenpalContainer />
         <PostsContainer posts={this.state.ourPosts}/>
       </React.Fragment>
     )
