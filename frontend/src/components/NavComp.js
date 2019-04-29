@@ -2,15 +2,18 @@ import React from 'react'
 import { withRouter, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logoutUser } from '../Redux/actions'
+import { Menu } from 'semantic-ui-react'
 
 const NavComp = (props) => {
   return(
-    <nav>
-      <NavLink to={props.currentUser ?  `/${props.currentUser.id}/us` : '/'}>Us</NavLink>
-      <NavLink to={props.currentUser ?  `/${props.currentUser.id}/me` : '/'}>Me</NavLink>
-      <NavLink to={props.currentUser ?  `/${props.currentUser.id}/edit` : '/'}>Edit</NavLink>
-      <button onClick={props.handleLogOut}>Log Out</button>
-    </nav>
+    <Menu pointing secondary>
+      <Menu.Item header as={NavLink} to={props.currentUser ?  `/${props.currentUser.id}/us` : '/'} children='Us' />
+      <Menu.Item header as={NavLink} to={props.currentUser ?  `/${props.currentUser.id}/me` : '/'} children='Me' />
+      <Menu.Item header as={NavLink} to={props.currentUser ?  `/${props.currentUser.id}/edit` : '/'} children='Edit' />
+      <Menu.Menu position='right'>
+        <Menu.Item onClick={props.handleLogOut} children='Log Out'/>
+      </Menu.Menu>
+    </Menu>
   )
 }
 
