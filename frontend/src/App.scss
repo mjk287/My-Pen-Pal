@@ -1,0 +1,48 @@
+// img {
+//   height: 200px;
+//   width: 300px;
+//   object-fit: cover;
+// }
+
+// ------------ card spacing -----------
+
+.card-margin-spacing {
+  margin: 20px auto
+}
+
+// ---------- utils -------------------
+.no-border {
+  border: 0px !important;
+  box-shadow: none !important
+}
+
+.fixed-column {
+  position: fixed !important;
+}
+
+.center-things {
+  text-align: center;
+}
+
+//---------- img sizing --------------
+
+.our-profile-imgs {
+  height: 200px;
+  width: 300px;
+  object-fit: cover;
+}
+
+//--------- us page --------------
+
+#top-filler-space {
+  margin-top: 100px
+}
+
+#penpal-column {
+  height: 100%
+}
+
+#penpal-message {
+  position: fixed;
+  bottom: 50px
+}

@@ -2,6 +2,8 @@ import React from 'react'
 import PostsContainer from '../../../components/PostsContainer'
 import { connect } from 'react-redux'
 import PenpalContainer from '../../../components/PenpalContainer'
+import { Grid } from 'semantic-ui-react'
+import OurImageContainer from '../../../components/OurImageContainer'
 
 class UsPage extends React.Component{
 
@@ -23,11 +25,25 @@ class UsPage extends React.Component{
   render(){
     return(
       <React.Fragment>
-        { this.props.currentUser.my_penpal.online &&
-        <h1>Penpal is on</h1>
-        }
-        <PenpalContainer />
-        <PostsContainer posts={this.state.ourPosts}/>
+        <Grid relaxed>
+          <Grid.Row>
+            <Grid.Column width={4}>
+            </Grid.Column>
+
+            <Grid.Column width={8}>
+              <OurImageContainer />
+              <PostsContainer posts={this.state.ourPosts}/>
+            </Grid.Column>
+
+            <Grid.Column width={4} className='center-things' id='penpal-column'>
+              { this.props.currentUser.my_penpal.online &&
+                <h1>Penpal is on</h1>
+              }
+              <PenpalContainer />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+
       </React.Fragment>
     )
   }
