@@ -24,6 +24,15 @@
   text-align: center;
 }
 
+.sm-margin {
+  margin-right: 20px;
+}
+
+.vertical-center {
+  position: relative;
+  margin: auto;
+}
+
 //---------- img sizing --------------
 
 .our-profile-imgs {
@@ -39,10 +48,66 @@
 }
 
 #penpal-column {
-  height: 100%
+  height: 100%;
+  text-align: center
 }
 
 #penpal-message {
   position: fixed;
   bottom: 50px
 }
+
+#penpal-message-text{
+  position: relative;
+  margin: auto;
+  padding: 30% 0 55% 0;
+  font-family: 'Indie Flower', cursive;
+  font-size: 14px;
+  font-weight: bold;
+  max-width: 160px;
+  word-break: break-word
+
+}
+
+#penpal-message-background{
+  position: fixed;
+  background: url('./assets/bubble.gif') no-repeat;
+  min-width: 200px;
+  min-height: 150px;
+  width: auto;
+  height: auto;
+  background-position: center;
+  background-size: cover;
+  animation: popout 0.25s ease;
+  transform-origin: bottom right;
+}
+
+@keyframes popout {
+  from {
+    transform:scale(0);
+
+  }
+  to {
+    transform:scale(1)
+  }
+}
+
+//----------- lighting -------------
+// .overlay-gradient {
+//   position:fixed;
+//   height: 50%;
+//   width: 100%;
+//   opacity: 0.5;
+//   background-image:
+//     // radial-gradient(
+//     //   ellipse at bottom right,
+//     //   #f9ee11,
+//     //   50%,
+//     //   transparent
+//     // ),
+//     radial-gradient(
+//       ellipse at bottom right,
+//       #ff6207 50%,
+//       transparent
+//     );
+// }
