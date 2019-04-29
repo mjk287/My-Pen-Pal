@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Switch, Redirect} from 'react-router-dom'
 import UserRoutes from './user/routes'
 import { connect } from 'react-redux'
-import { gotOnline } from '../Redux/actions'
+import { gotOnline, gotMessage } from '../Redux/actions'
 
 
 class Routes extends React.Component {
@@ -17,6 +17,11 @@ class Routes extends React.Component {
         switch(data.event){
           case 'appear':
             this.props.gotOnline()
+            break;
+          case 'message':
+            console.log(data.content)
+            this.props.gotMessage(data.content)
+            break;
           default:
             return null
         }
@@ -49,7 +54,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    gotOnline: () => dispatch(gotOnline())
+    gotOnline: () => dispatch(gotOnline()),
+    gotMessage: (content) => dispatch(gotMessage(content))
   })
 }
 

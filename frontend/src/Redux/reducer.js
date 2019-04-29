@@ -2,7 +2,8 @@ import ActionCable from 'action-cable-react-jwt'
 
 const initialState = {
   currentUser: {},
-  cable: {}
+  cable: {},
+  penpalMessage: ''
 }
 
 const reducer = (state=initialState, action) => {
@@ -28,6 +29,11 @@ const reducer = (state=initialState, action) => {
             online: true
           }
         }
+      })
+    case "GOT_MESSAGE":
+      return({
+        ...state,
+        penpalMessage: action.payload
       })
     default:
       return state
