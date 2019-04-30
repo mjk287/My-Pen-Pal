@@ -92,22 +92,34 @@
   }
 }
 
+
 //----------- lighting -------------
-// .overlay-gradient {
-//   position:fixed;
-//   height: 50%;
-//   width: 100%;
-//   opacity: 0.5;
-//   background-image:
-//     // radial-gradient(
-//     //   ellipse at bottom right,
-//     //   #f9ee11,
-//     //   50%,
-//     //   transparent
-//     // ),
-//     radial-gradient(
-//       ellipse at bottom right,
-//       #ff6207 50%,
-//       transparent
-//     );
-// }
+.overlay-gradient {
+  position:fixed;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  background-image:
+    radial-gradient(
+      ellipse farthest-side at bottom right,
+      rgb(185, 124,	0),
+      rgb(233, 207,	56) 35%,
+      rgb(208,	246,	202	) 70%,
+      transparent
+    ),
+    radial-gradient(
+      ellipse farthest-side at bottom,
+      rgb(233, 207,	56),
+      transparent 
+    );
+  animation: fadin 5s ;
+}
+
+@keyframes fadin {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5
+  }
+}
