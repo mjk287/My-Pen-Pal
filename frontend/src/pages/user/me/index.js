@@ -42,7 +42,6 @@ class MePage extends React.Component {
     return(
       <React.Fragment>
         <img src={`http://localhost:3000/${this.props.currentUser.image}`}/>
-        <audio src={`http://localhost:3000/${this.props.currentUser.my_penpal.song}`} autoPlay></audio>
         <PostForm handleSubmit={this.handleSubmit}/>
         <PostsContainer posts={this.state.myPosts} />
       </React.Fragment>

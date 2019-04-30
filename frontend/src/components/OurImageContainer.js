@@ -5,8 +5,7 @@ import { Image, Divider, Segment, Grid } from 'semantic-ui-react'
 const OurImageContainer = (props) => {
   console.log(props.currentUser)
   return(
-    <Segment className='no-border' id='top-filler-space'>
-      <Grid columns={2} relaxed divided>
+      <Grid columns={2} relaxed divided className='shadow-box' id='top-filler-space'>
         <Grid.Column>
           <Image className='our-profile-imgs' src={`http://localhost:3000/${props.currentUser.image}`} />
         </Grid.Column>
@@ -15,7 +14,6 @@ const OurImageContainer = (props) => {
         </Grid.Column>
 
       </Grid>
-    </Segment>
   )
 }
 

@@ -27,7 +27,9 @@ class UsPage extends React.Component{
       <React.Fragment>
       { this.props.currentUser.my_penpal.online &&
       <div className='overlay-gradient'>
+        <audio src={`http://localhost:3000/${this.props.currentUser.my_penpal.song}`} autoPlay></audio>
       </div>
+
       }
         <Grid relaxed>
 
