@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import PenpalContainer from '../../../components/PenpalContainer'
 import { Grid } from 'semantic-ui-react'
 import OurImageContainer from '../../../components/OurImageContainer'
+import AudioComp from '../../../components/audio'
 
 class UsPage extends React.Component{
 
@@ -25,12 +26,14 @@ class UsPage extends React.Component{
   render(){
     return(
       <React.Fragment>
-      { this.props.currentUser.my_penpal.online &&
-      <div className='overlay-gradient'>
-        <audio src={`http://localhost:3000/${this.props.currentUser.my_penpal.song}`} autoPlay></audio>
-      </div>
+        { this.props.currentUser.my_penpal.online &&
+        <React.Fragment>
+          <div className='overlay-gradient'>
 
-      }
+          </div>
+          <AudioComp/>
+        </React.Fragment>
+        }
         <Grid relaxed>
 
           <Grid.Row>
