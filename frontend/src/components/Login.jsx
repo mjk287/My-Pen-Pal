@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { postLogin } from '../Redux/actions'
+import { Input } from 'semantic-ui-react'
 
 class Login extends React.Component {
 
@@ -22,16 +23,14 @@ class Login extends React.Component {
     this.props.postLogin(this.state)
   }
 
+  // <Input label='Message:' type='text' name='message' value={this.state.message} onChange={this.changeHandler} />
+
   render(){
     return(
       <form onSubmit={this.handleSubmit}>
-        <label> Email:
-          <input type='text' name='email' value={this.state.email} onChange={this.changeHandler} />
-        </label>
-        <label> Password:
-          <input type='password' name='password' value={this.state.password} onChange={this.changeHandler} />
-        </label>
-        <input type='submit' value='Submit Me!' />
+          <Input size='small' label='Email:' type='text' name='email' value={this.state.email} onChange={this.changeHandler} className='input-field-margin'/>
+          <Input size='small' label="Password:" type='password' name='password' value={this.state.password} onChange={this.changeHandler} className='input-field-margin'/>
+        <Input size='small' type='submit' value='Submit Me!' className='input-field-margin' />
       </form>
     )
   }
