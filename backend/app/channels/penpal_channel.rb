@@ -4,6 +4,10 @@ class PenpalChannel < ApplicationCable::Channel
     current_user.appear
   end
 
+  def unsubscribed
+    current_user.disappear
+  end
+
   def receive(data)
     ActionCable.server.broadcast "penpal_channel_#{current_user.my_penpal.id}", data
   end
