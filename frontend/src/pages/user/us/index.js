@@ -25,8 +25,10 @@ class UsPage extends React.Component{
   render(){
     return(
       <React.Fragment>
+      { this.props.currentUser.my_penpal.online &&
       <div className='overlay-gradient'>
       </div>
+      }
         <Grid relaxed>
 
           <Grid.Row>
@@ -39,7 +41,7 @@ class UsPage extends React.Component{
             </Grid.Column>
 
             <Grid.Column width={4} className='center-things' id='penpal-column'>
-              
+
               <PenpalContainer />
             </Grid.Column>
           </Grid.Row>
