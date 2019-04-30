@@ -24,12 +24,12 @@ class UsPage extends React.Component{
   }
 
   render(){
+    console.log(this.props.currentUser.my_penpal.online)
     return(
       <React.Fragment>
         { this.props.currentUser.my_penpal.online &&
         <React.Fragment>
           <div className='overlay-gradient'>
-
           </div>
           <AudioComp/>
         </React.Fragment>

@@ -19,7 +19,6 @@ class Routes extends React.Component {
             this.props.gotOnline()
             break;
           case 'message':
-            console.log(data.content)
             this.props.gotMessage(data.content)
             break;
           default:
