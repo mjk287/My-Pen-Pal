@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Switch, Redirect} from 'react-router-dom'
 import UserRoutes from './user/routes'
 import { connect } from 'react-redux'
-import { gotOnline, gotMessage } from '../Redux/actions'
+import { gotOnline, gotMessage, gotOffline } from '../Redux/actions'
 
 
 class Routes extends React.Component {
@@ -12,11 +12,16 @@ class Routes extends React.Component {
 
     this.props.cable.subscriptions.create({channel: 'PenpalChannel', room: `${currentUser.id}`}, {
       connected: () => {},
-      disconnected: () => {},
+      disconnected: () => {
+        this.props.gotOffline()
+      },
       received: (data) => {
         switch(data.event){
           case 'appear':
             this.props.gotOnline()
+            break;
+          case 'disappear':
+            this.props.gotOffline()
             break;
           case 'message':
             this.props.gotMessage(data.content)
@@ -54,7 +59,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return ({
     gotOnline: () => dispatch(gotOnline()),
-    gotMessage: (content) => dispatch(gotMessage(content))
+    gotMessage: (content) => dispatch(gotMessage(content)),
+    gotOffline: () => dispatch(gotOffline())
   })
 }
 

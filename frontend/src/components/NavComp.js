@@ -5,6 +5,7 @@ import { logoutUser } from '../Redux/actions'
 import { Menu } from 'semantic-ui-react'
 
 const NavComp = (props) => {
+
   return(
     <Menu pointing secondary>
       <Menu.Item header as={NavLink} to={props.currentUser ?  `/${props.currentUser.id}/us` : '/'} children='Us' />
