@@ -15,7 +15,9 @@ const reducer = (state=initialState, action) => {
           cable: ActionCable.createConsumer('ws://localhost:3000/cable', localStorage.getItem('token'))
         })
     case "LOGOUT":
-      state.cable.subscriptions.subscriptions[0].unsubscribe()
+      if (!!state.cable.subscriptions.subscriptions[0]){
+        state.cable.subscriptions.subscriptions[0].unsubscribe()
+      }
       return({
         ...state,
         ...initialState

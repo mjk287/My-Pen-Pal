@@ -11,4 +11,10 @@ class PenpalChannel < ApplicationCable::Channel
   def receive(data)
     ActionCable.server.broadcast "penpal_channel_#{current_user.my_penpal.id}", data
   end
+
+  private
+
+  # def require_penpal
+  #
+  # end
 end

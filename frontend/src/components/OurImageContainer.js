@@ -9,7 +9,9 @@ const OurImageContainer = (props) => {
           <Image centered className='our-profile-imgs' src={`http://localhost:3000/${props.currentUser.image}`} />
         </Grid.Column>
         <Grid.Column >
+          { !!props.currentUser.my_penpal &&
           <Image centered className='our-profile-imgs' src={`http://localhost:3000/${props.currentUser.my_penpal.image}`} />
+          }
         </Grid.Column>
 
       </Grid>

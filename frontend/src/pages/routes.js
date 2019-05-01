@@ -10,27 +10,29 @@ class Routes extends React.Component {
   componentDidMount(){
     const { currentUser } = this.props
 
-    this.props.cable.subscriptions.create({channel: 'PenpalChannel', room: `${currentUser.id}`}, {
-      connected: () => {},
-      disconnected: () => {
-        this.props.gotOffline()
-      },
-      received: (data) => {
-        switch(data.event){
-          case 'appear':
-            this.props.gotOnline()
-            break;
-          case 'disappear':
-            this.props.gotOffline()
-            break;
-          case 'message':
-            this.props.gotMessage(data.content)
-            break;
-          default:
-            return null
+    if(currentUser.my_penpal){
+      this.props.cable.subscriptions.create({channel: 'PenpalChannel', room: `${currentUser.id}`}, {
+        connected: () => {},
+        disconnected: () => {
+          this.props.gotOffline()
+        },
+        received: (data) => {
+          switch(data.event){
+            case 'appear':
+              this.props.gotOnline()
+              break;
+            case 'disappear':
+              this.props.gotOffline()
+              break;
+            case 'message':
+              this.props.gotMessage(data.content)
+              break;
+            default:
+              return null
+          }
         }
-      }
-    })
+      })
+    }
   }
 
   render(){
