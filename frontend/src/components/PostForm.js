@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Form, Input, Segment, Grid, TextArea } from 'semantic-ui-react'
 
 class PostForm extends React.Component {
   state = {
@@ -16,15 +17,23 @@ class PostForm extends React.Component {
 
   render() {
     return(
-      <form onSubmit={(e) => this.props.handleSubmit(e, this.state)}>
-        <label> Title:
-        <input type='text' name='title' value={this.state.title} onChange={this.handleChange}/>
-        </label>
-        <label> Content:
-        <input type='textarea' name='content' value={this.state.content} onChange={this.handleChange}/>
-        </label>
-        <input  type='submit' value='Submit me!'/>
-      </form>
+      <Segment id='post-form-segment'>
+        <Grid.Row>
+        <h1>Make a Post!</h1>
+        </Grid.Row>
+        <Form onSubmit={(e) => this.props.handleSubmit(e, this.state)}>
+          <Grid.Row>
+          <Input label='Title:' type='text' name='title' value={this.state.title} onChange={this.handleChange} className='input-field-margin'/>
+          </Grid.Row>
+          <Grid.Row>
+          <TextArea placeholder='content it out here!' type='textarea' name='content' value={this.state.content} onChange={this.handleChange} className='input-field-margin' style={{ minHeight: 200 }}/>
+          </Grid.Row>
+          <Grid.Row>
+          <Input type='submit' value='Submit me!' className='input-field-margin'/>
+          </Grid.Row>
+        </Form>
+
+      </Segment>
     )
   }
 }

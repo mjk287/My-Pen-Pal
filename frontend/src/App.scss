@@ -36,9 +36,28 @@
 //---------- img sizing --------------
 
 .our-profile-imgs {
-  height: 200px;
-  width: 300px;
+  position:relative;
+  height: 90%;
+  width: 90%;
+  top: 5%;
   object-fit: cover;
+}
+
+.my-profile-imgs {
+  padding-top: 5%;
+  height: 400px;
+  width: 500px;
+  object-fit: cover;
+  border-bottom: 10px solid black;
+}
+
+.photo-frame {
+  // position: absolute;
+  height: 500px;
+  width: 525px !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  margin-bottom: 50px;
 }
 
 //--------- us page --------------
@@ -130,6 +149,12 @@
 
 .input-field-margin {
   margin: 10px auto;
+}
+
+//------------ me ---------------
+
+#post-form-segment{
+  margin-bottom: 75px
 }
 
 //----------- lighting -------------
