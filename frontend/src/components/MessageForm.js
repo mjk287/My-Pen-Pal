@@ -17,8 +17,10 @@ class MessageForm extends React.Component {
   submitHandler = (e, message) => {
     e.preventDefault()
 
-    const penpalChannel = this.props.cable.subscriptions.subscriptions[0]
-    penpalChannel.send({event: 'message', content: message})
+    if(!!this.props.currentUser.my_penpal){
+      const penpalChannel = this.props.cable.subscriptions.subscriptions[0]
+      penpalChannel.send({event: 'message', content: message})
+    }
   }
 
   render(){
