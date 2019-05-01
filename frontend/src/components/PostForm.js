@@ -19,7 +19,7 @@ class PostForm extends React.Component {
     return(
       <Segment id='post-form-segment'>
         <Grid.Row>
-        <h1>Make a Post!</h1>
+        <h1 className='post-form-text'>Make a Post!</h1>
         </Grid.Row>
         <Form onSubmit={(e) => this.props.handleSubmit(e, this.state)}>
           <Grid.Row>

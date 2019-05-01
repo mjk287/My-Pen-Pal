@@ -2,6 +2,7 @@ import React from 'react'
 import UserEditForm from '../../../components/UserEditForm'
 import { connect } from 'react-redux'
 import { patchUser } from '../../../Redux/actions'
+import { Grid } from 'semantic-ui-react'
 
 class EditPage extends React.Component {
 
@@ -20,7 +21,13 @@ class EditPage extends React.Component {
 
   render(){
     return(
-      <UserEditForm submitHandler={this.submitHandler}/>
+      <Grid verticalAlign='middle' centered id='edit-page-container'>
+        <Grid.Row id='edit-form-container'>
+          <Grid.Column>
+            <UserEditForm submitHandler={this.submitHandler}/>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     )
   }
 }

@@ -154,7 +154,52 @@
 //------------ me ---------------
 
 #post-form-segment{
-  margin-bottom: 75px
+  margin-bottom: 75px;
+
+}
+
+.post-form-text {
+  // font-family: 'Montserrat', sans-serif;
+}
+
+input[type='file']{
+  display: none
+}
+
+//------------- edit page-----------
+
+#edit-form-container{
+  position: relative;
+  width: 50vw !important;
+  height: 50vh;
+  margin: auto;
+  margin-top: 10%;
+}
+
+#edit-page-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+}
+
+.edit-form-input{
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .25);
+  transition: all 1s;
+  width: 70%;
+  &:focus {
+      outline-width: 0;
+      width: 100%
+    }
+}
+
+.file-select-link{
+  color: rgb(0, 131, 255);
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }
 
 //----------- lighting -------------
