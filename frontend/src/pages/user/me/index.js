@@ -2,6 +2,8 @@ import React from 'react'
 import PostsContainer from '../../../components/PostsContainer'
 import { connect } from 'react-redux'
 import PostForm from '../../../components/PostForm'
+import MyImageContainer from '../../../components/MyImageContainer'
+import { Grid } from 'semantic-ui-react'
 
 class MePage extends React.Component {
 
@@ -41,9 +43,19 @@ class MePage extends React.Component {
   render(){
     return(
       <React.Fragment>
-        <img src={`http://localhost:3000/${this.props.currentUser.image}`}/>
-        <PostForm handleSubmit={this.handleSubmit}/>
-        <PostsContainer posts={this.state.myPosts} />
+        <Grid>
+          <Grid.Row>
+          <Grid.Column width={3}>
+          </Grid.Column>
+          <Grid.Column width={10}>
+            <MyImageContainer />
+            <PostForm handleSubmit={this.handleSubmit}/>
+            <PostsContainer posts={this.state.myPosts} />
+          </Grid.Column>
+          <Grid.Column width={3}>
+          </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </React.Fragment>
     )
   }
