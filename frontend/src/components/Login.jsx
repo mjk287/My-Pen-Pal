@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { postLogin } from '../Redux/actions'
 import { Input } from 'semantic-ui-react'
+import { withRouter } from 'react-router-dom'
 
 class Login extends React.Component {
 
@@ -21,6 +22,7 @@ class Login extends React.Component {
     e.preventDefault()
 
     this.props.postLogin(this.state)
+
   }
 
   // <Input label='Message:' type='text' name='message' value={this.state.message} onChange={this.changeHandler} />
@@ -30,7 +32,7 @@ class Login extends React.Component {
       <form onSubmit={this.handleSubmit}>
           <Input size='small' label='Email:' type='text' name='email' value={this.state.email} onChange={this.changeHandler} className='input-field-margin'/>
           <Input size='small' label="Password:" type='password' name='password' value={this.state.password} onChange={this.changeHandler} className='input-field-margin'/>
-        <Input size='small' type='submit' value='Submit Me!' className='input-field-margin' />
+          <Input size='small' type='submit' value='Submit Me!' className='input-field-margin' />
       </form>
     )
   }
@@ -42,4 +44,4 @@ const mapDispatchToProps = (dispatch) => {
   )
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+export default withRouter(connect(null, mapDispatchToProps)(Login))
