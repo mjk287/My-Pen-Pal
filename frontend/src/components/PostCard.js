@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Card } from 'semantic-ui-react'
+import CommentContainer from './CommentContainer'
 
 const PostCard = (props) => {
   return (
@@ -8,6 +9,7 @@ const PostCard = (props) => {
         <Card fluid id='post-card' >
           <Card.Content header={props.post.title}/>
           <Card.Content description={props.post.content}/>
+          <CommentContainer postId={props.post.id} />
         </Card>
       </Container>
     </React.Fragment>
