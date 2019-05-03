@@ -4,7 +4,10 @@ const CommentCard = (props) => {
   const { comment } = props
 
   return(
-    <p>{comment.content}</p>
+    <React.Fragment>
+      <p>{comment.content}</p>
+      <p>{comment.name}</p>
+    </React.Fragment>
   )
 }
 
