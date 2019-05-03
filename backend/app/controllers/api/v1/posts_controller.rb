@@ -25,6 +25,12 @@ class Api::V1::PostsController < ApplicationController
     render json: @posts
   end
 
+  def show_comments
+    @post = Post.find(params[:id])
+    @comments = @post.comments
+    render json: @comments
+  end
+
   private
 
   def post_params
