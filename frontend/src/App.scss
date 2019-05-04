@@ -153,6 +153,13 @@
 
 #post-card {
   background-color: inherit;
+
+  .post-profile-image {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
 }
 
 #post-card:before {
@@ -244,21 +251,25 @@ input[type='file']{
 
 //----------- comments ---------------
 
-.comment-card {
-  position: relative;
-  word-break: break-word;
-  opacity: 0.68;
-  font-size: 12px;
-  margin-bottom: 10%;
-  padding-right: 10%;
-  .comment-body {
-    min-height: 50px;
-  }
-  .comment-name {
-    float: right;
-  }
+// .comment-card {
+//   position: relative;
+//   word-break: break-word;
+//   opacity: 0.68;
+//   font-size: 12px;
+//   margin-bottom: 10%;
+//   padding-right: 10%;
+//   .comment-body {
+//     min-height: 50px;
+//   }
+//   .comment-name {
+//     float: right;
+//   }
+//
+// }
 
-}
+  .comment-content {
+    padding-left: 40px;
+  }
 
 //----------- lighting -------------
 .overlay-gradient {
