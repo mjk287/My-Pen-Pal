@@ -1,16 +1,17 @@
 import React from 'react'
-import { Container, Comment } from 'semantic-ui-react'
+import { Container, Comment, Image } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 const CommentCard = (props) => {
   const { comment } = props
-  
+
   return(
+
     <Comment>
-      <Comment.Avatar src={`http://localhost:3000/${comment.image}`}/>
       <Comment.Content>
+        <Image src={`http://localhost:3000/${comment.image}`} className='post-profile-image' circular />
         <Comment.Author as='a'>{comment.name}</Comment.Author>
-        <Comment.Text>{comment.content}</Comment.Text>
+        <Comment.Text className='comment-content'>{comment.content}</Comment.Text>
       </Comment.Content>
     </Comment>
   )

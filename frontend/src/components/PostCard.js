@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Card, Button, Icon } from 'semantic-ui-react'
+import { Container, Card, Button, Icon, Image } from 'semantic-ui-react'
 import CommentContainer from './CommentContainer'
 
 class PostCard extends React.Component{
@@ -21,7 +21,12 @@ class PostCard extends React.Component{
       <React.Fragment>
         <Container className='card-margin-spacing shadow-box'>
           <Card fluid id='post-card' >
-            <Card.Content header={this.props.post.title}/>
+            <Card.Content>
+              <Card.Header>
+                <Image src={`http://localhost:3000/${this.props.post.image}`} className='post-profile-image' circular/>
+                {this.props.post.title}
+              </Card.Header>
+            </Card.Content>
             <Card.Content description={this.props.post.content}/>
             { this.state.commentClicked ?
             <React.Fragment>
