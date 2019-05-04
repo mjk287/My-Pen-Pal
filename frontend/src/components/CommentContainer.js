@@ -1,6 +1,6 @@
 import React from 'react'
 import CommentCard from './CommentCard'
-import { Container } from 'semantic-ui-react'
+import { Container, Grid, Comment} from 'semantic-ui-react'
 import CommentForm from './CommentForm'
 
 class CommentContainer extends React.Component {
@@ -11,7 +11,7 @@ class CommentContainer extends React.Component {
 
   mapCommentsToCard = () => {
     return this.state.comments.map((comment) => {
-      return <CommentCard comment={comment}/>
+      return <CommentCard key={comment.id} comment={comment}/>
     })
   }
 
@@ -46,13 +46,11 @@ class CommentContainer extends React.Component {
 
   render(){
     return(
-      <React.Fragment>
-        <Container>
-          { this.mapCommentsToCard()}
-        </Container>
-        <CommentForm postId={this.props.postId} handleSubmit={this.handleSubmit}/>
+        <Comment.Group>
+        { this.mapCommentsToCard()}
 
-      </React.Fragment>
+        <CommentForm postId={this.props.postId} handleSubmit={this.handleSubmit}/>
+        </Comment.Group>
     )
   }
 }

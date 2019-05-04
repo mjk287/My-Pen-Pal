@@ -33,6 +33,31 @@
   margin: auto;
 }
 
+.ui.button.pull-down-icon {
+  background: inherit;
+  // animation: commentappear 0.5s ease;
+  &:hover{
+    background: inherit;
+    opacity: 0.2;
+    background-image:
+      linear-gradient(
+        to top,
+        rgb(169, 194, 229),
+        transparent
+      );
+    animation: hoverfadin 0.5s ;
+  }
+}
+
+@keyframes hoverfadin {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 0.25
+  }
+}
+
 //---------- img sizing --------------
 
 .our-profile-imgs {
@@ -215,6 +240,24 @@ input[type='file']{
     cursor: pointer;
     text-decoration: underline;
   }
+}
+
+//----------- comments ---------------
+
+.comment-card {
+  position: relative;
+  word-break: break-word;
+  opacity: 0.68;
+  font-size: 12px;
+  margin-bottom: 10%;
+  padding-right: 10%;
+  .comment-body {
+    min-height: 50px;
+  }
+  .comment-name {
+    float: right;
+  }
+
 }
 
 //----------- lighting -------------
