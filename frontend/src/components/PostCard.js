@@ -24,10 +24,12 @@ class PostCard extends React.Component{
             <Card.Content header={this.props.post.title}/>
             <Card.Content description={this.props.post.content}/>
             { this.state.commentClicked ?
-            <Card.Content extra>
-              <CommentContainer postId={this.props.post.id} />
+            <React.Fragment>
+              <Card.Content extra>
+                <CommentContainer postId={this.props.post.id} />
+              </Card.Content>
               <Button icon='angle up' onClick={this.handleClick} className='pull-down-icon'/>
-            </Card.Content>
+            </React.Fragment>
             :
             <Button icon='angle down' onClick={this.handleClick} className='pull-down-icon'/>
             }
