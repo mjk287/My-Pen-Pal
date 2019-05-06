@@ -1,5 +1,5 @@
 import React from 'react'
-import { Segment, Grid, Input, Form, TextArea, Icon, Menu } from 'semantic-ui-react'
+import { Segment, Grid, Input, Form, TextArea, Icon, Menu, Image } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 class PostPicForm extends React.Component {
@@ -50,12 +50,17 @@ class PostPicForm extends React.Component {
             <Input label='Title:' type='text' name='title' value={this.state.title} onChange={this.handleChange} className='input-field-margin'/>
           </Grid.Row>
           <Grid.Row>
-            <span ><Icon name='file image' />Upload a profile picture for yourself <label className='file-select-link'>here!
-            <input type='file' className='input-field-margin' name='image' onChange={this.handleFileChange}  />
-            </label></span>
+            <div className='pic-zone'>
+              <p className='image-upload-text'><Icon name='file image' />Upload a profile picture for yourself <label className='file-select-link'>here!
+              <input type='file' className='input-field-margin' name='image' onChange={this.handleFileChange}  />
+              </label></p>
+                {!!this.state.preview &&
+                  <Image src={this.state.preview} centered className='upload-preview'/>
+                }
+            </div>
           </Grid.Row>
-          <Grid.Row>
-            <TextArea placeholder='caption it out here!' type='textarea' name='content' value={this.state.content} onChange={this.handleChange} className='input-field-margin' style={{ minHeight: 200 }}/>
+          <Grid.Row className='input-field-margin'>
+            <TextArea placeholder='caption it out here!' type='textarea' name='content' value={this.state.content} onChange={this.handleChange} className='input-field-margin caption-textarea' style={{ minHeight: 200 }}/>
           </Grid.Row>
           <Grid.Row>
             <Input type='submit' value='Submit me!' className='input-field-margin'/>
