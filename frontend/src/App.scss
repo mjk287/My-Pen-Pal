@@ -92,6 +92,7 @@
 .post-pic {
   object-fit:cover;
   max-height: 700px;
+  overflow: hidden;
 }
 
 //--------- us page --------------
@@ -282,6 +283,24 @@ input[type='file']{
   .comment-content {
     padding-left: 40px;
   }
+
+//------------post form ----------------
+
+.post-form-types {
+  border: none !important;
+  box-shadow: none !important;
+  .item{
+    .icon{
+      width: auto;
+      height: auto;
+      &:hover{
+          cursor: pointer;
+          opacity: 0.25 !important;
+          animation: hoverfadin 0.5s ;
+        }
+    }
+  }
+}
 
 //----------- lighting -------------
 .overlay-gradient {

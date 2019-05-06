@@ -1,5 +1,5 @@
 import React from 'react'
-import { Segment, Grid, Input, Form, TextArea, Icon } from 'semantic-ui-react'
+import { Segment, Grid, Input, Form, TextArea, Icon, Menu } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 class PostPicForm extends React.Component {
@@ -30,11 +30,18 @@ class PostPicForm extends React.Component {
       <Segment id='post-form-segment'>
         <Grid>
           <Grid.Row>
-            <Grid.Column width={8}>
+            <Grid.Column width={12}>
               <h1 className='post-form-text'>Make a Post!</h1>
             </Grid.Column>
-            <Grid.Column width={8}>
-              <h3 onClick={(e) => this.props.handleTypeChange('text')}>Text Time!</h3>
+            <Grid.Column width={4}>
+              <Menu icon borderless fluid widths={2} className='post-form-types'>
+                <Menu.Item>
+                  <Icon name='image outline' size='large' onClick={(e) => this.props.handleTypeChange('pic')}/>
+                </Menu.Item>
+                <Menu.Item>
+                  <Icon name='write square' size='large' onClick={(e) => this.props.handleTypeChange('text')}/>
+                </Menu.Item>
+              </Menu>
             </Grid.Column>
           </Grid.Row>
         </Grid>
