@@ -2,13 +2,16 @@ import React from 'react'
 import PostsContainer from '../../../components/PostsContainer'
 import { connect } from 'react-redux'
 import PostForm from '../../../components/PostForm'
+import PostPicForm from '../../../components/PostPicForm'
 import MyImageContainer from '../../../components/MyImageContainer'
 import { Grid } from 'semantic-ui-react'
+
 
 class MePage extends React.Component {
 
   state = {
-    myPosts: []
+    myPosts: [],
+    formType: 'text'
   }
 
   componentDidMount() {
@@ -24,13 +27,16 @@ class MePage extends React.Component {
   handleSubmit = (e, postObj) => {
     e.preventDefault()
 
+    const data = new FormData()
+    Object.keys(postObj).forEach((key, value) => {
+      if (!!postObj[key]) {
+        data.append(key, postObj[key])
+      }
+    })
+
     fetch(`http://localhost:3000/api/v1/posts`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(postObj)
+      body: data
     })
     .then(res => res.json())
     .then(post => {
@@ -38,6 +44,21 @@ class MePage extends React.Component {
         myPosts: [post, ...this.state.myPosts]
       })
     })
+  }
+
+  handleTypeChange = (type) => {
+    this.setState({
+      formType: type
+    })
+  }
+
+  renderForm = () => {
+    switch(this.state.formType){
+      case 'pic':
+        return <PostPicForm handleSubmit={this.handleSubmit} handleTypeChange={this.handleTypeChange}/>
+      default:
+        return <PostForm handleSubmit={this.handleSubmit} handleTypeChange={this.handleTypeChange}/>
+    }
   }
 
   render(){
@@ -49,7 +70,7 @@ class MePage extends React.Component {
           </Grid.Column>
           <Grid.Column width={10}>
             <MyImageContainer />
-            <PostForm handleSubmit={this.handleSubmit}/>
+            { this.renderForm() }
             <PostsContainer posts={this.state.myPosts} />
           </Grid.Column>
           <Grid.Column width={3}>

@@ -6,4 +6,8 @@ class PostSerializer < ActiveModel::Serializer
   def image
     rails_blob_path(object.user.image, only_path: true) if object.user.image.attached?
   end
+
+  def pic
+      rails_blob_path(object.pic, only_path: true) if object.pic.attached?
+  end
 end
