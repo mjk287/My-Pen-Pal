@@ -1,11 +1,13 @@
 import React from 'react'
 import { Container, Card, Button, Icon, Image } from 'semantic-ui-react'
 import CommentContainer from './CommentContainer'
+import { connect } from 'react-redux'
 
 class PostCard extends React.Component{
 
   state = {
-    commentClicked: false
+    commentClicked: false,
+    liked: this.props.post.liked
   }
 
   handleClick = (e) => {
@@ -16,17 +18,34 @@ class PostCard extends React.Component{
     })
   }
 
+  handleLike = (e) => {
+    fetch(`http://localhost:3000/api/v1/posts/${this.props.post.id}/liked`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json'
+      }
+    }).then(res => res.json())
+    .then(parsedRes => {
+      this.setState({
+        liked: parsedRes
+      })
+    })
+  }
+
   render(){
     return (
       <React.Fragment>
-        <Container className='card-margin-spacing shadow-box'>
+        <Container className='card-margin-spacing shadow-box' >
           <Card fluid id='post-card' >
             <Card.Content>
               <Card.Header>
                 <Image src={`http://localhost:3000/${this.props.post.image}`} className='post-profile-image' circular/>
                 {this.props.post.title}
+                  <Icon className='like-heart' name={this.state.liked ? 'heart' : 'heart outline'} onClick={this.props.post.user_id === this.props.currentUser.id ? null : this.handleLike }/>
               </Card.Header>
             </Card.Content>
+
             <Card.Content description={this.props.post.content}/>
             { this.state.commentClicked ?
             <React.Fragment>
@@ -45,4 +64,8 @@ class PostCard extends React.Component{
   }
 }
 
-export default PostCard
+const mapStateToProps = (state) => {
+  return state
+}
+
+export default connect(mapStateToProps)(PostCard)
