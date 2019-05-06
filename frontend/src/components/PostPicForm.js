@@ -1,11 +1,13 @@
 import React from 'react'
 import { Segment, Grid, Input, Form, TextArea, Icon } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
 class PostPicForm extends React.Component {
 
   state = {
     title: '',
     content: '',
+    user_id: this.props.currentUser.id,
     pic: null,
     preview: ''
   }
@@ -59,4 +61,8 @@ class PostPicForm extends React.Component {
 
 }
 
-export default PostPicForm
+const mapStateToProps = (state) => {
+  return state
+}
+
+export default connect(mapStateToProps)(PostPicForm)
