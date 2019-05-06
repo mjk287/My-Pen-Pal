@@ -18,19 +18,24 @@ class PostForm extends React.Component {
   render() {
     return(
       <Segment id='post-form-segment'>
-        <Grid.Row>
-        <h1 className='post-form-text'>Make a Post!</h1>
-        </Grid.Row>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column width={8}>
+              <h1 className='post-form-text'>Make a Post!</h1>
+            </Grid.Column>
+            <Grid.Column width={8}>
+              <h3 onClick={(e) => this.props.handleTypeChange('pic')}>Image Time!</h3>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
         <Form onSubmit={(e) => this.props.handleSubmit(e, this.state)}>
-          <Grid.Row>
+
           <Input label='Title:' type='text' name='title' value={this.state.title} onChange={this.handleChange} className='input-field-margin'/>
-          </Grid.Row>
-          <Grid.Row>
+
           <TextArea placeholder='content it out here!' type='textarea' name='content' value={this.state.content} onChange={this.handleChange} className='input-field-margin' style={{ minHeight: 200 }}/>
-          </Grid.Row>
-          <Grid.Row>
+
           <Input type='submit' value='Submit me!' className='input-field-margin'/>
-          </Grid.Row>
+
         </Form>
 
       </Segment>
