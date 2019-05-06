@@ -31,6 +31,13 @@ class Api::V1::PostsController < ApplicationController
     render json: @comments
   end
 
+  def liked
+    @post = Post.find(params[:id])
+    @post.update(liked: !@post.liked)
+
+    render json: @post.liked
+  end
+
   private
 
   def post_params

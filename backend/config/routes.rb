@@ -11,9 +11,11 @@ Rails.application.routes.draw do
       get '/my_posts/:user_id', to: 'posts#my_posts'
       get '/our_posts/:user_id', to: 'posts#our_posts'
       get '/posts/:id/comments', to: 'posts#show_comments'
+      post '/posts/:id/liked', to: 'posts#liked' 
       post '/logout', to: 'auth#logout'
       post '/login', to: 'auth#create'
       get '/current_user', to: 'auth#show'
+
     end
   end
 
