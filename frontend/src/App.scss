@@ -89,6 +89,11 @@
   border-bottom: none;
 }
 
+.post-pic {
+  object-fit:cover;
+  max-height: 700px;
+}
+
 //--------- us page --------------
 .upload-image-plz {
   position: absolute;

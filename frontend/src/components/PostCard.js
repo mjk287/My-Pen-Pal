@@ -46,6 +46,10 @@ class PostCard extends React.Component{
               </Card.Header>
             </Card.Content>
 
+            { this.props.post.pic &&
+              <Image src={`http://localhost:3000/${this.props.post.pic}`} className='post-pic'/>
+             }
+
             <Card.Content description={this.props.post.content}/>
             { this.state.commentClicked ?
             <React.Fragment>
