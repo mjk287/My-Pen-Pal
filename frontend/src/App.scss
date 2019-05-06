@@ -196,6 +196,19 @@
   float: right;
   z-index: 10;
   vertical-align: middle;
+  &:hover{
+    cursor: pointer;
+    animation: beating 0.5s infinite;
+  }
+}
+
+@keyframes beating {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
 }
 
 //-------------landing stuff ----------------
@@ -366,3 +379,5 @@ input[type='file']{
 .shadow-box {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+//------- icons ---------

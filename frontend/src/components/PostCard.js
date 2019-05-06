@@ -42,7 +42,7 @@ class PostCard extends React.Component{
               <Card.Header>
                 <Image src={`http://localhost:3000/${this.props.post.image}`} className='post-profile-image' circular/>
                 {this.props.post.title}
-                  <Icon className='like-heart' name={this.state.liked ? 'heart' : 'heart outline'} onClick={this.props.post.user_id === this.props.currentUser.id ? null : this.handleLike }/>
+                  <Icon color='red' className='like-heart' name={this.state.liked ? 'heart' : 'heart outline'} onClick={this.props.post.user_id === this.props.currentUser.id ? null : this.handleLike }/>
               </Card.Header>
             </Card.Content>
 
