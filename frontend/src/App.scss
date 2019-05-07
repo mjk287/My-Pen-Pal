@@ -58,6 +58,10 @@
   }
 }
 
+.relative-wrapper{
+  position: relative;
+}
+
 //---------- img sizing --------------
 
 .our-profile-imgs {
@@ -250,6 +254,40 @@ input[type='file']{
   display: none
 }
 
+.recording-form-overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(244, 66, 66, 1),
+      transparent 10%
+    ),
+    radial-gradient(
+      ellipse farthest-side at bottom right,
+      rgba(255, 39, 20, 0.75) 5%,
+      rgba(244, 66, 66, 0.2) 25%,
+      transparent
+    ),
+    radial-gradient(
+      ellipse farthest-side at bottom left,
+      rgba(255, 39, 20, 0.75) 5%,
+      rgba(244, 66, 66, 0.2) 25%,
+      transparent
+    ),
+    radial-gradient(
+      ellipse farthest-side at bottom,
+      rgba(255, 39, 20, 0.75) 5%,
+      rgba(244, 66, 66, 0.2) 25%,
+      transparent
+    );
+}
+
 //------------- edit page-----------
 
 #edit-form-container{
@@ -313,6 +351,7 @@ input[type='file']{
 .post-form-types {
   border: none !important;
   box-shadow: none !important;
+  background: inherit !important;
   .item{
     .icon{
       width: auto;
