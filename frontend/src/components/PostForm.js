@@ -24,12 +24,15 @@ class PostForm extends React.Component {
               <h1 className='post-form-text'>Make a Post!</h1>
             </Grid.Column>
             <Grid.Column width={4}>
-              <Menu icon borderless fluid widths={2} className='post-form-types'>
+              <Menu icon borderless fluid widths={3} className='post-form-types'>
                 <Menu.Item>
                   <Icon name='image outline' size='large' onClick={(e) => this.props.handleTypeChange('pic')}/>
                 </Menu.Item>
                 <Menu.Item>
                   <Icon name='write square' size='large' onClick={(e) => this.props.handleTypeChange('text')}/>
+                </Menu.Item>
+                <Menu.Item>
+                  <Icon name='file audio' size='large' onClick={(e) => this.props.handleTypeChange('voice')}/>
                 </Menu.Item>
               </Menu>
             </Grid.Column>

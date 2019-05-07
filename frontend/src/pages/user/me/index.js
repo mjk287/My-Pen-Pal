@@ -3,6 +3,7 @@ import PostsContainer from '../../../components/PostsContainer'
 import { connect } from 'react-redux'
 import PostForm from '../../../components/PostForm'
 import PostPicForm from '../../../components/PostPicForm'
+import RecorderForm from '../../../components/RecorderForm'
 import MyImageContainer from '../../../components/MyImageContainer'
 import { Grid } from 'semantic-ui-react'
 
@@ -56,6 +57,8 @@ class MePage extends React.Component {
     switch(this.state.formType){
       case 'pic':
         return <PostPicForm handleSubmit={this.handleSubmit} handleTypeChange={this.handleTypeChange}/>
+      case 'voice':
+        return <RecorderForm handleSubmit={this.handleSubmit} handleTypeChange={this.handleTypeChange}/>
       default:
         return <PostForm handleSubmit={this.handleSubmit} handleTypeChange={this.handleTypeChange}/>
     }
