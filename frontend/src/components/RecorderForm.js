@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 class RecorderForm extends React.Component {
   constructor(props){
     super(props)
-    this.audioTag = React.createRef()
     this.previewTag = React.createRef()
   }
 
@@ -76,9 +75,6 @@ class RecorderForm extends React.Component {
   async componentDidMount(){
     const stream = await navigator.mediaDevices.getUserMedia({audio: true})
 
-    this.audioTag.current.srcObject = stream;
-    this.audioTag.current.play();
-
     this.mediaRecorder = new MediaRecorder(stream);
 
     this.chunks = [];
@@ -123,7 +119,6 @@ class RecorderForm extends React.Component {
             :
             <Button icon='microphone' onClick={this.clickRecordHandler} content=' Start Recording'/>}
             <Button icon='play circle outline' content=' Play Preview' onClick={this.previewHandler}/>
-            <audio ref={this.audioTag}></audio>
             <audio ref={this.previewTag}></audio>
             <Input type='submit' value='Submit me!' className='input-field-margin'/>
           </Grid.Row>
