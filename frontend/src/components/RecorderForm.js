@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 class RecorderForm extends React.Component {
   constructor(props){
     super(props)
-
     this.audioTag = React.createRef()
     this.previewTag = React.createRef()
   }
@@ -23,7 +22,11 @@ class RecorderForm extends React.Component {
 
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      ...this.state,
+      post: {
+        ...this.state.post,
+        [e.target.name]: e.target.value
+      }
     })
   }
 
@@ -60,7 +63,7 @@ class RecorderForm extends React.Component {
         voice: blob
       },
       preview: audioURL
-    });
+    }, () => console.log(this.state.post.voice));
   }
 
   previewHandler = (e) => {
@@ -110,9 +113,9 @@ class RecorderForm extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <Form>
+        <Form onSubmit={(e) => this.props.handleSubmit(e, this.state.post)}>
           <Grid.Row>
-            <Input label='Title:' type='text' name='title' value={this.state.title} onChange={this.handleChange} className='input-field-margin'/>
+            <Input label='Title:' type='text' name='title' value={this.state.post.title} onChange={this.handleChange} className='input-field-margin'/>
           </Grid.Row>
           <Grid.Row>
             {this.state.recording ?
@@ -122,6 +125,7 @@ class RecorderForm extends React.Component {
             <Button icon='play circle outline' content=' Play Preview' onClick={this.previewHandler}/>
             <audio ref={this.audioTag}></audio>
             <audio ref={this.previewTag}></audio>
+            <Input type='submit' value='Submit me!' className='input-field-margin'/>
           </Grid.Row>
         </Form>
       </Segment>

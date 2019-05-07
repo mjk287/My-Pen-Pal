@@ -3,4 +3,5 @@ class Post < ApplicationRecord
   has_many :comments
 
   has_one_attached :pic
+  has_one_attached :voice
 end

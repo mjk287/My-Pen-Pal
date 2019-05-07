@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Card, Button, Icon, Image } from 'semantic-ui-react'
 import CommentContainer from './CommentContainer'
 import { connect } from 'react-redux'
+import VoiceComp from './VoiceComp'
 
 class PostCard extends React.Component{
 
@@ -47,10 +48,15 @@ class PostCard extends React.Component{
             </Card.Content>
 
             { this.props.post.pic &&
-              <Image src={`http://localhost:3000/${this.props.post.pic}`} className='post-pic'/>
-             }
+              <Image src={`http://localhost:3000/${this.props.post.pic}`} className='post-pic'/> }
+             { this.props.post.voice &&
+               <Card.Content>
+                <VoiceComp voice={this.props.post.voice} />
+                </Card.Content >
+               }
+             { this.props.post.content &&
+               <Card.Content description={this.props.post.content}/> }
 
-            <Card.Content description={this.props.post.content}/>
             { this.state.commentClicked ?
             <React.Fragment>
               <Card.Content extra>
