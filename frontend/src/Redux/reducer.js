@@ -14,6 +14,11 @@ const reducer = (state=initialState, action) => {
           currentUser: action.payload,
           cable: ActionCable.createConsumer('ws://localhost:3000/cable', localStorage.getItem('token'))
         })
+    case "EDIT_CURRENT_USER":
+      return({
+        ...state,
+        currentUser: action.payload
+      })
     case "LOGOUT":
       if (!!state.cable.subscriptions.subscriptions[0]){
         state.cable.subscriptions.subscriptions[0].unsubscribe()

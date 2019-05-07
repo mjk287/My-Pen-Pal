@@ -6,6 +6,7 @@ export const setCurrentUser = (userObj) => ({type: "SET_CURRENT_USER", payload: 
 export const gotOnline = () => ({ type: "GOT_ONLINE" })
 export const gotOffline = () => ({type: "GOT_OFFLINE"})
 export const gotMessage = (content) => ({type: "GOT_MESSAGE", payload: content})
+export const editCurrentUser = (userObj) => ({type: "EDIT_CURRENT_USER", payload: userObj})
 
 /*------------------- Thunk -------------------------- */
 
@@ -69,7 +70,7 @@ export const patchUser = (userObj, id) => (dispatch) => {
   })
   .then(res => res.json())
   .then(parsedRes => {
-    dispatch(setCurrentUser(parsedRes))
+    dispatch(editCurrentUser(parsedRes))
   })
 }
 

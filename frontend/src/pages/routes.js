@@ -9,7 +9,6 @@ class Routes extends React.Component {
 
   componentDidMount(){
     const { currentUser } = this.props
-    console.log('hit it!')
 
     if(currentUser.my_penpal){
       this.props.cable.subscriptions.create({channel: 'PenpalChannel', room: `${currentUser.id}`}, {
