@@ -8,7 +8,6 @@ class RecorderForm extends React.Component {
     this.previewTag = React.createRef()
   }
 
-
   state = {
     post: {
       title: '',
@@ -62,7 +61,7 @@ class RecorderForm extends React.Component {
         voice: blob
       },
       preview: audioURL
-    }, () => console.log(this.state.post.voice));
+    });
   }
 
   previewHandler = (e) => {
@@ -73,9 +72,9 @@ class RecorderForm extends React.Component {
   }
 
   async componentDidMount(){
-    const stream = await navigator.mediaDevices.getUserMedia({audio: true})
+    this.stream = await navigator.mediaDevices.getUserMedia({audio: true})
 
-    this.mediaRecorder = new MediaRecorder(stream);
+    this.mediaRecorder = new MediaRecorder(this.stream);
 
     this.chunks = [];
 
@@ -86,12 +85,16 @@ class RecorderForm extends React.Component {
     }
   }
 
+  componentWillUnmount(){
+    this.stream.getTracks()[0].stop()
+  }
+
   render(){
     return(
       <Segment id='post-form-segment'>
         <Grid>
           <Grid.Row>
-            <Grid.Column width={12}>
+            <Grid.Column width={10}>
               <h1 className='post-form-text'>Make a Post!</h1>
             </Grid.Column>
             <Grid.Column width={4}>

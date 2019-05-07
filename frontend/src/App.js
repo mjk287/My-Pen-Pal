@@ -19,10 +19,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <NavComp />
-
         {
-          !!store.getState().currentUser.id ? <Routes /> : <LandingPage /> }
-
+          !!store.getState().currentUser.id ? <Routes /> : <LandingPage />
+        }
       </div>
     );
   }
