@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Image, Divider, Segment, Grid } from 'semantic-ui-react'
+import { Image, Grid } from 'semantic-ui-react'
 import { withRouter } from 'react-router-dom'
 
 const OurImageContainer = (props) => {
@@ -16,7 +16,7 @@ const OurImageContainer = (props) => {
               <Image centered className='our-profile-imgs' src={`http://localhost:3000/${props.currentUser.image}`} />
               :
               <React.Fragment>
-                <p className='upload-image-plz'>upload an image in your <a onClick={handleClick}>"Edit"</a> page</p>
+                <p className='upload-image-plz'>upload an image in your <span onClick={handleClick}>"Edit"</span> page</p>
                 <Image centered className='our-profile-imgs' src={require('../assets/semanticFinal.gif')} />
 
               </React.Fragment>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Icon } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 
 class VoiceComp extends React.Component{
   constructor(props){

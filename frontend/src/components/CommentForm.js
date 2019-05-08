@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Input, TextArea, Form } from 'semantic-ui-react'
+import { Input, Form } from 'semantic-ui-react'
 
 class CommentForm extends React.Component {
   state = {

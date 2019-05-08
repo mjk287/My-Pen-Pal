@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Segment, Grid, Image, Icon, Button, Input } from 'semantic-ui-react'
+import { Segment, Grid, Image, Icon, Input } from 'semantic-ui-react'
 
 class UserEditForm extends React.Component {
 

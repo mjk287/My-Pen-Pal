@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Comment, Image } from 'semantic-ui-react'
+import { Comment, Image } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 const CommentCard = (props) => {
