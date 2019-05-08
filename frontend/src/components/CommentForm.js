@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Input, Form } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 
 class CommentForm extends React.Component {
   state = {
@@ -19,7 +19,7 @@ class CommentForm extends React.Component {
     return (
       <Form reply onSubmit ={(e) => this.props.handleSubmit(e, this.state)}>
         <Form.TextArea onChange={this.handleChange} value={this.state.content} name='content'  />
-        <Input type='submit' value='Add Reply!' />
+        <Button type='submit' basic>Add Reply!</Button>
       </Form>
     )
   }

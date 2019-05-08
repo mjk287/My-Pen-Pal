@@ -1,26 +1,35 @@
 import React from 'react'
-import { Segment, Grid, Input, Form, TextArea, Icon, Menu, Image } from 'semantic-ui-react'
+import { Segment, Grid, Input, Form, TextArea, Icon, Menu, Image, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 class PostPicForm extends React.Component {
 
   state = {
-    title: '',
-    content: '',
-    user_id: this.props.currentUser.id,
-    pic: null,
-    preview: ''
+    post: {
+      title: '',
+      content: '',
+      user_id: this.props.currentUser.id,
+      pic: null,
+    },
+    preview: '',
+    submitted: false
   }
 
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      post: {
+        ...this.state.post,
+        [e.target.name]: e.target.value
+      }
     })
   }
 
   handleFileChange = (e) => {
     this.setState({
-      pic: e.target.files[0],
+      post: {
+        ...this.state.post,
+        pic: e.target.files[0],
+      },
       preview: URL.createObjectURL(e.target.files[0])
     })
   }
@@ -50,20 +59,23 @@ class PostPicForm extends React.Component {
         </Grid>
         <Form onSubmit={(e) => {
           this.setState({
-            title: '',
-            content: '',
-            user_id: this.props.currentUser.id,
-            pic: null,
-            preview: ''
+            post: {
+              title: '',
+              content: '',
+              user_id: this.props.currentUser.id,
+              pic: null,
+            },
+            preview: '',
+            submitted: true
           })
-          this.props.handleSubmit(e, this.state)}}>
+          this.props.handleSubmit(e, this.state.post)}}>
           <Grid.Row>
-            <Input label='Title:' type='text' name='title' value={this.state.title} onChange={this.handleChange} className='input-field-margin'/>
+            <Input label='Title:' type='text' name='title' value={this.state.post.title} onChange={this.handleChange} className='input-field-margin' required/>
           </Grid.Row>
           <Grid.Row>
             <div className='pic-zone'>
               <p className='image-upload-text'><Icon name='file image' />Upload a profile picture for yourself <label className='file-select-link'>here!
-              <input type='file' className='input-field-margin' name='image' onChange={this.handleFileChange}  />
+              <input type='file' className='input-field-margin' name='image' onChange={this.handleFileChange} required/>
               </label></p>
                 {!!this.state.preview &&
                   <Image src={this.state.preview} centered className='upload-preview'/>
@@ -71,10 +83,13 @@ class PostPicForm extends React.Component {
             </div>
           </Grid.Row>
           <Grid.Row className='input-field-margin'>
-            <TextArea placeholder='caption it out here!' type='textarea' name='content' value={this.state.content} onChange={this.handleChange} className='input-field-margin caption-textarea' style={{ minHeight: 200 }}/>
+            <TextArea placeholder='caption it out here!' type='textarea' name='content' value={this.state.post.content} onChange={this.handleChange} className='input-field-margin caption-textarea' style={{ minHeight: 200 }}/>
           </Grid.Row>
           <Grid.Row>
-            <Input type='submit' value='Submit me!' className='input-field-margin'/>
+            <Button type='submit' className='input-field-margin submit-button' inverted color='red'>Submit me!</Button>
+            {!!this.state.submitted &&
+              <Icon size='large' name='check circle' color='green' className='approve-icon'/>
+            }
           </Grid.Row>
         </Form>
 

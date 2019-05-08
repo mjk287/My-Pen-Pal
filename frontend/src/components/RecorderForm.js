@@ -15,7 +15,8 @@ class RecorderForm extends React.Component {
       user_id: this.props.currentUser.id
     },
     preview: '',
-    recording: false
+    recording: false,
+    submitted: false
   }
 
   handleChange = (e) => {
@@ -117,11 +118,12 @@ class RecorderForm extends React.Component {
           this.setState({
             post: { title: '', voice: null, user_id: this.props.currentUser.id },
             preview: '',
-            recording: false
+            recording: false,
+            submitted: true
             })
             this.props.handleSubmit(e, this.state.post)}}>
           <Grid.Row>
-            <Input label='Title:' type='text' name='title' value={this.state.post.title} onChange={this.handleChange} className='input-field-margin'/>
+            <Input label='Title:' type='text' name='title' value={this.state.post.title} onChange={this.handleChange} className='input-field-margin' required/>
           </Grid.Row>
           <Grid.Row>
             {this.state.recording ?
@@ -130,7 +132,10 @@ class RecorderForm extends React.Component {
             <Button icon='microphone' onClick={this.clickRecordHandler} content=' Start Recording'/>}
             <Button icon='play circle outline' content=' Play Preview' onClick={this.previewHandler}/>
             <audio ref={this.previewTag}></audio>
-            <Input type='submit' value='Submit me!' className='input-field-margin'/>
+            <Button type='submit' className='input-field-margin submit-button' inverted color='red'>Submit me!</Button>
+            {!!this.state.submitted &&
+              <Icon size='large' name='check circle' color='green' className='approve-icon'/>
+            }
           </Grid.Row>
         </Form>
       </Segment>
