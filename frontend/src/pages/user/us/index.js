@@ -9,10 +9,10 @@ import AudioComp from '../../../components/audio'
 class UsPage extends React.Component{
 
   state = {
-    ourPosts: []
+    ourPosts: null
   }
 
-  componentDidMount(){
+  componentWillMount(){
 
     fetch(`http://localhost:3000/api/v1/our_posts/${this.props.currentUser.id}`)
     .then(resp => resp.json())

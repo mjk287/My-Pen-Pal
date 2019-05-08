@@ -11,7 +11,7 @@ import { Grid } from 'semantic-ui-react'
 class MePage extends React.Component {
 
   state = {
-    myPosts: [],
+    myPosts: null,
     formType: 'text'
   }
 
@@ -43,7 +43,7 @@ class MePage extends React.Component {
     .then(post => {
       this.setState({
         myPosts: [post, ...this.state.myPosts]
-      })
+      }, alert('Post Posted!'))
     })
   }
 

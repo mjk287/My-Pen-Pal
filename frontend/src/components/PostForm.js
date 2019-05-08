@@ -38,7 +38,14 @@ class PostForm extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <Form onSubmit={(e) => this.props.handleSubmit(e, this.state)}>
+        <Form onSubmit={(e) => {
+          this.setState({
+            title: '',
+            content: '',
+            user_id: this.props.currentUser.id
+          })
+          this.props.handleSubmit(e, this.state)
+        }}>
 
           <Input label='Title:' type='text' name='title' value={this.state.title} onChange={this.handleChange} className='input-field-margin'/>
 

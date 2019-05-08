@@ -32,7 +32,7 @@ class Signup extends React.Component {
         <Input size='small' label='Name:' type='text' name='name' value={this.state.name} onChange={this.changeHandler} className='input-field-margin'/>
         <Input size='small' label='Password:' type='password' name='password' value={this.state.password} onChange={this.changeHandler} className='input-field-margin'/>
         <Input size='small' label='Password Confirmation:' type='password' name='passwordConfirmation' value={this.state.passwordConfirmation} onChange={this.changeHandler} className='input-field-margin'/>
-        <Input size='small' type='submit' value='Submit Me!' className='input-field-margin'/>
+        <Input size='small' type='submit' value='Sign Up!' className='input-field-margin landing-button'/>
       </form>
     )
   }

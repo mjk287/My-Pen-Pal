@@ -1,7 +1,7 @@
 import React from 'react'
 import Login from '../../components/Login'
 import Signup from '../../components/Signup'
-import { Grid} from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 class LandingPage extends React.Component {
   render(){
@@ -10,6 +10,7 @@ class LandingPage extends React.Component {
           <Grid verticalAlign='middle' centered relaxed divided id='landing-container'>
             <Grid.Row id='landing-form-container'>
               <Grid.Column width={8}>
+                <h1 id='title'>save me <br/> a seat.</h1>
                 <Login />
               </Grid.Column>
               <Grid.Column width={8}>
