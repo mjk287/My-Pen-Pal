@@ -18,7 +18,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+      {!!store.getState().currentUser.id &&
         <NavComp />
+      }
         {
           !!store.getState().currentUser.id ? <Routes /> : <LandingPage />
         }
