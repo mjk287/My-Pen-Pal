@@ -24,9 +24,8 @@ class UsPage extends React.Component{
   }
 
   render(){
-
     const myPenpal = this.props.currentUser.my_penpal
-
+    console.log('render!')
     return(
       <React.Fragment>
         { !!myPenpal && myPenpal.online &&
