@@ -43,7 +43,7 @@ class MePage extends React.Component {
     .then(post => {
       this.setState({
         myPosts: [post, ...this.state.myPosts]
-      }, alert('Post Posted!'))
+      })
     })
   }
 

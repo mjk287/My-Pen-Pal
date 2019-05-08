@@ -1,17 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Form, Input, Segment, Grid, TextArea, Icon, Menu } from 'semantic-ui-react'
+import { Form, Input, Segment, Grid, TextArea, Icon, Menu, Button } from 'semantic-ui-react'
 
 class PostForm extends React.Component {
   state = {
-    title: '',
-    content: '',
-    user_id: this.props.currentUser.id
+    post: {
+      title: '',
+      content: '',
+      user_id: this.props.currentUser.id
+    },
+    submitted: false
   }
 
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      post: {
+        ...this.state.post,
+        [e.target.name]: e.target.value
+      }
     })
   }
 
@@ -40,19 +46,28 @@ class PostForm extends React.Component {
         </Grid>
         <Form onSubmit={(e) => {
           this.setState({
-            title: '',
-            content: '',
-            user_id: this.props.currentUser.id
+            post: {
+              title: '',
+              content: '',
+              user_id: this.props.currentUser.id
+            },
+            submitted: true
           })
-          this.props.handleSubmit(e, this.state)
+          this.props.handleSubmit(e, this.state.post)
         }}>
+          <Grid.Row>
+            <Input label='Title:' type='text' name='title' value={this.state.post.title} onChange={this.handleChange} className='input-field-margin' required/>
+          </Grid.Row>
+          <Grid.Row>
+            <TextArea placeholder='content it out here!' type='textarea' name='content' value={this.state.post.content} onChange={this.handleChange} className='input-field-margin' style={{ minHeight: 200 }} required/>
+          </Grid.Row>
+          <Grid.Row>
+            <Button type='submit' className='input-field-margin submit-button' inverted color='red'>Submit me!</Button>
+            {!!this.state.submitted &&
+              <Icon size='large' name='check circle' color='green' className='approve-icon'/>
+            }
 
-          <Input label='Title:' type='text' name='title' value={this.state.title} onChange={this.handleChange} className='input-field-margin'/>
-
-          <TextArea placeholder='content it out here!' type='textarea' name='content' value={this.state.content} onChange={this.handleChange} className='input-field-margin' style={{ minHeight: 200 }}/>
-
-          <Input type='submit' value='Submit me!' className='input-field-margin'/>
-
+          </Grid.Row>
         </Form>
 
       </Segment>

@@ -1,33 +1,45 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Segment, Grid, Image, Icon, Input } from 'semantic-ui-react'
+import { Segment, Grid, Image, Icon, Input, Button } from 'semantic-ui-react'
 
 class UserEditForm extends React.Component {
 
   state = {
-    name: '',
-    password: '',
-    passwordConfirmation: '',
-    image: null,
-    song: null,
-    preview: null
+      user: {
+      name: '',
+      password: '',
+      passwordConfirmation: '',
+      image: null,
+      song: null,
+    },
+    preview: null,
+    submitted: false
   }
 
   changeHandler = (e) => {
     this.setState({
+      user: {
+      ...this.state.user,
       [e.target.name]: e.target.value
+      }
     })
   }
 
   handleFileChange = (e) => {
     if(e.target.name === 'image'){
       this.setState({
-        [e.target.name]: e.target.files[0],
+        user: {
+          ...this.state.user,
+          [e.target.name]: e.target.files[0],
+        },
         preview: URL.createObjectURL(e.target.files[0])
       })
     } else {
       this.setState({
-        [e.target.name]: e.target.files[0]
+        user: {
+          ...this.state.user,
+          [e.target.name]: e.target.files[0]
+        }
       })
     }
   }
@@ -39,14 +51,17 @@ class UserEditForm extends React.Component {
           <Grid.Column width={8}>
             <form onSubmit = {(e) => {
               this.setState({
-                name: '',
-                password: '',
-                passwordConfirmation: '',
-                image: null,
-                song: null,
-                preview: null
+                user: {
+                  name: '',
+                  password: '',
+                  passwordConfirmation: '',
+                  image: null,
+                  song: null,
+                },
+                preview: null,
+                submitted: true
               })
-              this.props.submitHandler(e, this.state)}}>
+              this.props.submitHandler(e, this.state.user)}}>
               <Grid.Row>
                 <input type='text' className='edit-form-input input-field-margin' name='name' value={this.state.name} placeholder={this.props.currentUser.name} onChange={this.changeHandler}/>
               </Grid.Row>
@@ -67,7 +82,10 @@ class UserEditForm extends React.Component {
                 </label></span>
               </Grid.Row>
               <Grid.Row>
-              <Input type='submit' className='input-field-margin' value='Submit Me!'/>
+              <Button type='submit' className='input-field-margin submit-button' inverted color='red'>Submit me!</Button>
+              {!!this.state.submitted &&
+                <Icon size='large' name='check circle' color='green' className='approve-icon'/>
+              }
               </Grid.Row>
             </form>
           </Grid.Column>

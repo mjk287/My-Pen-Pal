@@ -236,7 +236,7 @@
 }
 
 .input-field-margin {
-  margin: 10px auto;
+  margin: 10px auto ;
 }
 
 #title{
@@ -500,6 +500,49 @@ input[type='file']{
 
 .landing-button {
   display: block !important;
+}
+
+.submit-button {
+  margin-top: 10px !important;
+  // border: 1px solid rgb(244, 65, 119) !important;
+  color: rgb(244, 65, 119) !important;
+  background-image: inherit;
+    &:hover{
+      background-image:
+        linear-gradient(
+          to top,
+          rgb(247, 132, 86),
+          rgb(244, 65, 119)
+        ) !important;
+      color: white !important;
+    }
+    &:focus{
+      background-image:
+        linear-gradient(
+          to top,
+          rgb(247, 132, 86),
+          rgb(244, 65, 119)
+        ) !important;
+      color: white !important;
+    }
+
+}
+
+.approve-icon {
+  margin-left: 10px !important;
+  animation: bubble 0.5s;
+}
+
+@keyframes bubble {
+  0%{
+    transform: scale(0);
+  }
+  50%{
+    transform: scale(1.7)
+  }
+  100%{
+    transform: scale(1);
+  }
 }
 
 //---------navbar --------
