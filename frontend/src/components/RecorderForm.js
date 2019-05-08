@@ -113,7 +113,13 @@ class RecorderForm extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <Form onSubmit={(e) => this.props.handleSubmit(e, this.state.post)}>
+        <Form onSubmit={(e) => {
+          this.setState({
+            post: { title: '', voice: null, user_id: this.props.currentUser.id },
+            preview: '',
+            recording: false
+            })
+            this.props.handleSubmit(e, this.state.post)}}>
           <Grid.Row>
             <Input label='Title:' type='text' name='title' value={this.state.post.title} onChange={this.handleChange} className='input-field-margin'/>
           </Grid.Row>

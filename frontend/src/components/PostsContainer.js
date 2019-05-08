@@ -1,6 +1,8 @@
 import React from 'react'
-import PostCard from './PostCard'
 import { Card } from 'semantic-ui-react'
+import Loader from './Loader'
+
+const PostCard = React.lazy(() => import('./PostCard'))
 
 const PostsContainer = (props) => {
   const makePostCards = () => {
@@ -9,13 +11,21 @@ const PostsContainer = (props) => {
     })
   }
 
+  if(!props.posts) {
+    return(
+      <Loader />
+    )
+  }
+
   return(
     <React.Fragment>
       { props.posts.length === 0 ?
         <h3>You should write a post!</h3>
          :
         <Card.Group>
-          {makePostCards()}
+          <React.Suspense fallback={<Loader />}>
+            {makePostCards()}
+          </React.Suspense>
         </Card.Group>
       }
     </React.Fragment>

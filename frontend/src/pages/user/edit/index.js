@@ -17,6 +17,8 @@ class EditPage extends React.Component {
     })
 
     this.props.patchUser(data, this.props.currentUser.id)
+
+    alert('Profile Updated')
   }
 
   render(){

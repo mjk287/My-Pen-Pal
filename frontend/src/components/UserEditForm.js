@@ -37,7 +37,16 @@ class UserEditForm extends React.Component {
       <Segment>
         <Grid verticalAlign='middle' divided >
           <Grid.Column width={8}>
-            <form onSubmit = {(e) => this.props.submitHandler(e, this.state)}>
+            <form onSubmit = {(e) => {
+              this.setState({
+                name: '',
+                password: '',
+                passwordConfirmation: '',
+                image: null,
+                song: null,
+                preview: null
+              })
+              this.props.submitHandler(e, this.state)}}>
               <Grid.Row>
                 <input type='text' className='edit-form-input input-field-margin' name='name' value={this.state.name} placeholder={this.props.currentUser.name} onChange={this.changeHandler}/>
               </Grid.Row>

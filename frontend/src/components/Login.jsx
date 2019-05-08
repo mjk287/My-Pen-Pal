@@ -32,7 +32,7 @@ class Login extends React.Component {
       <form onSubmit={this.handleSubmit}>
           <Input size='small' label='Email:' type='text' name='email' value={this.state.email} onChange={this.changeHandler} className='input-field-margin'/>
           <Input size='small' label="Password:" type='password' name='password' value={this.state.password} onChange={this.changeHandler} className='input-field-margin'/>
-          <Input size='small' type='submit' value='Submit Me!' className='input-field-margin' />
+          <Input size='small' type='submit' value='Log In!' className='input-field-margin landing-button' />
       </form>
     )
   }

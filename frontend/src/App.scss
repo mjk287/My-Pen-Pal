@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+
 // img {
 //   height: 200px;
 //   width: 300px;
@@ -235,6 +237,11 @@
 
 .input-field-margin {
   margin: 10px auto;
+}
+
+#title{
+  font-size: 38px;
+  font-family: 'Gloria Hallelujah', cursive;
 }
 
 //------------ me ---------------
@@ -489,6 +496,10 @@ input[type='file']{
 
 .voice-button {
   position: relative;
+}
+
+.landing-button {
+  display: block !important;
 }
 
 //---------navbar --------
