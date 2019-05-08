@@ -17,7 +17,7 @@ const MyImageContainer = (props) => {
       </Container>
       :
       <Container className='photo-frame'>
-        <p className='upload-image-plz'>upload an image in your <a onClick={handleClick}>"Edit"</a> page</p>
+        <p className='upload-image-plz'>upload an image in your <span onClick={handleClick}>"Edit"</span> page</p>
         <Image centered className='my-profile-imgs no-border' id='top-filler-space' src={require('../assets/semanticFinal.gif')} />
       </Container>
       }

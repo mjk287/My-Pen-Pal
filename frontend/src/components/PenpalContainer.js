@@ -1,7 +1,6 @@
 import React from 'react'
 import MessageForm from './MessageForm'
 import { connect } from 'react-redux'
-import { Container } from 'semantic-ui-react'
 
 class PenpalContainer extends React.Component {
   render(){

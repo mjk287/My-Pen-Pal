@@ -1,6 +1,6 @@
 import React from 'react'
 import CommentCard from './CommentCard'
-import { Container, Grid, Comment} from 'semantic-ui-react'
+import { Comment} from 'semantic-ui-react'
 import CommentForm from './CommentForm'
 
 class CommentContainer extends React.Component {

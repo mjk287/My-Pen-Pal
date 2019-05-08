@@ -1,5 +1,5 @@
 import React from 'react'
-import { withRouter, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logoutUser } from '../Redux/actions'
 import { Menu } from 'semantic-ui-react'
@@ -7,7 +7,7 @@ import { Menu } from 'semantic-ui-react'
 const NavComp = (props) => {
 
   return(
-    <Menu pointing secondary>
+    <Menu pointing secondary id='navbar' className='fixed'>
       <Menu.Item header as={NavLink} to={props.currentUser ?  `/${props.currentUser.id}/us` : '/'} children='Us' />
       <Menu.Item header as={NavLink} to={props.currentUser ?  `/${props.currentUser.id}/me` : '/'} children='Me' />
       <Menu.Item header as={NavLink} to={props.currentUser ?  `/${props.currentUser.id}/edit` : '/'} children='Edit' />

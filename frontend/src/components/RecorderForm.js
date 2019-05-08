@@ -96,8 +96,9 @@ class RecorderForm extends React.Component {
           <Grid.Row>
             <Grid.Column width={10}>
               <h1 className='post-form-text'>Make a Post!</h1>
+
             </Grid.Column>
-            <Grid.Column width={4}>
+            <Grid.Column width={6}>
               <Menu icon borderless fluid widths={3} className='post-form-types'>
                 <Menu.Item>
                   <Icon name='image outline' size='large' onClick={(e) => this.props.handleTypeChange('pic')}/>
@@ -118,7 +119,7 @@ class RecorderForm extends React.Component {
           </Grid.Row>
           <Grid.Row>
             {this.state.recording ?
-            <Button icon='microphone slash' content=' Stop Recording' onClick={this.clickStopHandler}/>
+            <Button icon='microphone slash' content=' Stop Recording' onClick={this.clickStopHandler} id='record-on'/>
             :
             <Button icon='microphone' onClick={this.clickRecordHandler} content=' Start Recording'/>}
             <Button icon='play circle outline' content=' Play Preview' onClick={this.previewHandler}/>
