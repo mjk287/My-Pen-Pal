@@ -1,6 +1,25 @@
 # Mod 5 Project
 
-One Paragraph of project description goes here
+This is a social media app for two or some may call it a pen pal app. It is an application geared for a pair relationship, interaction, and bonding.
+
+## Motivation
+
+Most social media apps focus on a breadth of content with many relationships and clutters of posts. This can come at the cost of more shallow content and stage like performance over authenticity. This app is motivated to focus on a depth of content in a single relationship so that it might result in more meaningful content, and intimacy. Furthermore, the project's features and details heighten these qualities by introducing elements I find humanistic and attempting to humanize the medium (web applications). This will be further detailed in the "Features" sections of the ReadMe.
+
+## Features
+
+The application has the baseline, typical features of a social media application such as the ability to make text and image posts on your wall, comment on a post, and like a post. Aside from these, here are some of the unique features of this application:
+
+1. When creating an account, a user will be assigned a random partner or pen pal, establishing the pair relationship.
+
+2. When editing your profile, you can change your name, password, profile picture and your favorite song. How this favorite song will be used will be detailed below.
+
+3. On your newsfeed/homepage, when your partner is logged-in a variety of features will become available and queues will be triggered:
+  - A warm amber light, imitating interior domestic lighting, will emit from the corner of the page, indicating their online presence.
+  - The aforementioned favorite song of your partner will begin to play. Moreover, an IIR filter will be applied on the song that makes it sound muffled and diegetic, simulating music coming from another room or from your next door neighbor.
+  - You can chat with your partner via realtime chatroom on the side of the page.
+
+4. There is a third type of post, aside from text and image, which is the voicemail post. A user will be able to record their voice, play the preview, and submit it to the backend. A filter as well as sound effects will dynamically manipulate the audio to sound like voicemail and capture the sentimentality attached to this old mode of messaging.  
 
 ## Getting Started
 
