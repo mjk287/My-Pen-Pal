@@ -15,8 +15,9 @@ The application has the baseline, typical features of a social media application
 2. When editing your profile, you can change your name, password, profile picture and your favorite song. How this favorite song will be used will be detailed below.
 
 3. On your newsfeed/homepage, when your partner is logged-in a variety of features will become available and queues will be triggered:
-  - A warm amber light, imitating interior domestic lighting, will emit from the corner of the page, indicating their online presence.
-  - The aforementioned favorite song of your partner will begin to play. Moreover, an IIR filter will be applied on the song that makes it sound muffled and diegetic, simulating music coming from another room or from your next door neighbor.
+
+  - A warm amber light, imitating interior domestic lighting, will emit from the corner of the page, indicating their online     presence.
+  - The aforementioned favorite song of your partner will begin to play. Moreover, an IIR filter will be applied on the song     that makes it sound muffled and diegetic, simulating music coming from another room or from your next door neighbor.
   - You can chat with your partner via realtime chatroom on the side of the page.
 
 4. There is a third type of post, aside from text and image, which is the voicemail post. A user will be able to record their voice, play the preview, and submit it to the backend. A filter as well as sound effects will dynamically manipulate the audio to sound like voicemail and capture the sentimentality attached to this old mode of messaging.  
