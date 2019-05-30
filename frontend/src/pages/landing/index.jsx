@@ -10,7 +10,7 @@ class LandingPage extends React.Component {
           <Grid verticalAlign='middle' centered relaxed divided id='landing-container'>
             <Grid.Row id='landing-form-container'>
               <Grid.Column width={8}>
-                <h1 id='title'>save me <br/> a seat.</h1>
+                <h1 id='title'>My <br/> Pen Pal.</h1>
                 <Login />
               </Grid.Column>
               <Grid.Column width={8}>

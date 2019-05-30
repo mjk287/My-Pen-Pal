@@ -1,6 +1,6 @@
-# Mod 5 Project
+# My Pen Pal
 
-This is a social media app for two or some may call it a pen pal app. It is an application geared for a pair relationship, interaction, and bonding.
+My Pen Pal is a social media app for two. It is an application geared for a pair relationship, interaction, and bonding.
 
 ## Motivation
 

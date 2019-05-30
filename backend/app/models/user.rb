@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_one_attached :image
   has_one_attached :song
 
+  validates :email, uniqueness: true
+
   has_secure_password
 
   def our_posts
