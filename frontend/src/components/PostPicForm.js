@@ -74,7 +74,7 @@ class PostPicForm extends React.Component {
           </Grid.Row>
           <Grid.Row>
             <div className='pic-zone'>
-              <p className='image-upload-text'><Icon name='file image' />Upload a profile picture for yourself <label className='file-select-link'>here!
+              <p className='image-upload-text'><Icon name='file image' />Upload a photo <label className='file-select-link'>here!
               <input type='file' className='input-field-margin' name='image' onChange={this.handleFileChange} required/>
               </label></p>
                 {!!this.state.preview &&
